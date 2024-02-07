@@ -1,0 +1,25 @@
+@use '../../styles/variables' as v;
+
+:root {
+    --size: 26;
+    --intensity: 0.3;
+}
+
+.cursor {
+  width: calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  border-radius: 50%;
+  border: 1px solid rgba(v.$black, var(--intensity));
+  outline: calc(var(--size) / 4 * 1px) solid rgba(v.$black, var(--intensity));
+  outline-offset: calc(var(--size) * -1px);
+  z-index: 1000;
+  position: fixed;
+  pointer-events: none;
+}
+
+body.--dark {
+  .cursor {
+    border-color: rgba(v.$white, var(--intensity));
+    outline-color: rgba(v.$white, var(--intensity));
+  }
+}

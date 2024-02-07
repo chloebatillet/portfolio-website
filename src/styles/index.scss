@@ -1,0 +1,176 @@
+@use "reset";
+@use "./variables" as v;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  // color: v.$white;
+  // background-color: v.$black-bg;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-timeline: --squareTimeline y;
+  
+  height: 100vh;
+  transition: all 1s;
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-y: visible;
+  overflow-x: hidden;
+  margin: 0;
+  color: v.$black;
+  background-color: v.$white-bg;
+  transition: all 1s;
+}
+
+/* ----------------------
+  Scrollbar
+---------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: v.$dark-shadow;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-button {
+  border-radius: 5px;
+  height: 10px;
+  background: v.$dark-shadow;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* ----------------------
+---------------------- */
+
+/* ----------------------
+  Horizontal scroll
+---------------------- */
+
+#container {
+  height: auto;
+  width: 100vw;
+  /* set width based on sections */
+  height: 100vh;
+  width: 400vw;
+  //display: flex;
+  //flex-wrap: nowrap;
+}
+
+.section-element {
+  height: 100vh;
+  width: 100vw;
+  border: solid 1px red;
+}
+
+.section-element:last-of-type {
+  position: relative;
+  background-color: v.$white;
+  height: 80vh;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 10vh;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 57px;
+    position: absolute;
+    top: -57px;
+    left: 0;
+    background-size: auto;
+    background-repeat: repeat no-repeat;
+    background-position: 22vw bottom;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 115' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 0C22.4434 -1 28.9842 2 55 20C94.1849 47 121.997 49 158.5 49C198.5 52 200 38 240 44C280 51 320 76 360 76C400 76 440 51 480 46C520 42 560 59 600 72C640 85 680 93 720 98C760 102 800 102 840 89C880 76 920 51 960 53C1000 55 1040 85 1080 81C1120 76 1127.5 51 1147.5 32C1171.48 10 1185.65 0 1200 0V115H1180C1160 115 1120 115 1080 115C1040 115 1000 115 960 115C920 115 880 115 840 115C800 115 760 115 720 115C680 115 640 115 600 115C560 115 520 115 480 115C440 115 400 115 360 115C320 115 280 115 240 115C200 115 160 115 120 115C80 115 40 115 20 115H0V0.0103865Z' fill='%23F9EDE7'/></svg>");
+  }
+}
+
+/*---------------------------
+  Round shape
+-------------------------- */
+
+// .round-shape {
+//   width: 500px;
+//   height: 500px;
+//   margin: auto;
+//   //border-radius: 50%;
+//   background: radial-gradient(
+//     rgba(251, 63, 215, 1),
+//     rgba(252, 121, 70, 1),
+//     transparent 60%
+//   );
+//   animation: gradient-grow 1.5s infinite alternate-reverse;
+// }
+
+// .isolate {
+//   isolation: isolate;
+//   position: relative;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .noise {
+//   width: 100%;
+//   height: 100%;
+//   background: radial-gradient(rgb(220, 110, 168), transparent),
+//     url(https://grainy-gradients.vercel.app/noise.svg);
+//   filter: contrast(1000%) brightness(90%);
+// }
+
+// .overlay {
+//   background: v.$white-bg;
+//   mix-blend-mode: multiply;
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+
+body.--dark {
+  color: v.$white;
+  background-color: v.$black-bg;
+
+  .section-element:last-of-type {
+    background-color: v.$black;
+
+    &::before {
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 115' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 0C22.4434 -1 28.9842 2 55 20C94.1849 47 121.997 49 158.5 49C198.5 52 200 38 240 44C280 51 320 76 360 76C400 76 440 51 480 46C520 42 560 59 600 72C640 85 680 93 720 98C760 102 800 102 840 89C880 76 920 51 960 53C1000 55 1040 85 1080 81C1120 76 1127.5 51 1147.5 32C1171.48 10 1185.65 0 1200 0V115H1180C1160 115 1120 115 1080 115C1040 115 1000 115 960 115C920 115 880 115 840 115C800 115 760 115 720 115C680 115 640 115 600 115C560 115 520 115 480 115C440 115 400 115 360 115C320 115 280 115 240 115C200 115 160 115 120 115C80 115 40 115 20 115H0V0.0103865Z' fill='%23181717'/></svg>");
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .section-element {
+    justify-content: center;
+
+    &:last-of-type {
+      height: auto;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5vh;
+    }
+  }
+}

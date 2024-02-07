@@ -1,0 +1,26 @@
+@use "sass:math";
+
+$menuWidth: 250px;
+$smallMenuWidth: 150px;
+$small: 700px;
+$gutter: 1.5rem;
+$halfGutter: math.div($gutter, 2);
+
+/* ----------------------------
+Colors
+---------------------------- */
+
+$accent: #c65184;
+$accent-darker: darken($accent, 20%);
+$accent-lighter: lighten($accent, 20%);
+
+$blue: #9ddadb;
+$blue-darker: darken($blue, 20%);
+
+$white: #F9EDE7;
+$white-bg : #fcf7f5;
+$black: #181717;
+$black-bg: #252323;
+
+$light-shadow: rgba(0, 0, 0, 0.1);
+$dark-shadow: rgba(0, 0, 0, 0.2);

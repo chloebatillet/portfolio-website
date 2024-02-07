@@ -1,0 +1,84 @@
+@use "../../styles/variables" as v;
+
+.contacts-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.illustration {
+  position: relative;
+  svg {
+    width: 300px;
+    transform: scale(0);
+  }
+
+  .hand {
+    width: 150px;
+    height: 200px;
+    background-color: #eec5aa;
+    position: absolute;
+    bottom: -200px;
+    left: 100px;
+    transform: scale(0) rotate(20deg);
+    transform-origin: bottom;
+    //animation: waving 2s infinite alternate-reverse ease-out;
+  }
+
+  @keyframes waving {
+    from {transform: rotate(-40deg);}
+    to {transform: rotate(20deg);}
+  }
+  
+}
+
+.networks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: x-large;
+
+  :hover {
+    color: grey;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  //margin: auto;
+  //margin-top: 5vh;
+
+  input,
+  textarea {
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    resize: none;
+  }
+
+  #lastname {
+    text-transform: uppercase;
+  }
+
+  input[type="submit"] {
+    background-color: rgb(254, 109, 206);
+  }
+}
+
+body.--dark {
+  input[type="submit"] {
+    background-color: v.$black-bg;
+    color: inherit;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contacts-details {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+}

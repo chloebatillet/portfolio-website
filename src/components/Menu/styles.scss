@@ -1,0 +1,63 @@
+@use "../../styles/variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Teko:wght@300;400;500;600;700&display=swap");
+
+
+.word {
+  font-size: 2rem;
+  -webkit-text-stroke: 1px v.$black;
+  color: transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  line-height: 2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  .index {
+    font-size: small;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    color: v.$black;
+  }
+
+  &.is-active {
+    color: v.$black;
+  }
+
+  .letter {
+    transition: transform 0.5s, filter 0.5s;
+    font-size: inherit;
+    transform-origin: center bottom;
+    transform: scale(1);
+    display: flex;
+
+    &:hover {
+      //filter: brightness(200%);
+      transform: scale(1.2);
+
+      & + .letter {
+        transform: scale(1.1);
+        //filter: brightness(220%);
+
+        & + .letter {
+          //filter: brightness(200%);
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+body.--dark {
+  .word {
+    -webkit-text-stroke: 0.5px v.$white;
+
+    &:hover, &.is-active {
+      color: v.$white;
+    }
+  }
+}
