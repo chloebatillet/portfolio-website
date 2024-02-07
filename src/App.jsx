@@ -38,17 +38,18 @@ function App() {
   useGSAP(() => {
     const horizontalSections = gsap.utils.toArray(".section-element");
 
-    // gsap.to(horizontalSections, {
-    //   xPercent: -100 * (horizontalSections.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: "#container",
-    //     pin: true,
-    //     scrub: 1,
-    //     snap: 1 / (horizontalSections.length - 1),
-    //     end: () => "+=" + document.querySelector("#container").offsetWidth,
-    //   },
-    // });
+    gsap.to(horizontalSections, {
+      xPercent: -100 * (horizontalSections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#container",
+        pin: true,
+        scrub: 2,
+        //* Interfère avec les liens du menu
+        //snap: 1 / (horizontalSections.length - 1),
+        end: () => "+=" + document.querySelector("#container").offsetWidth,
+      },
+    });
   });
 
   return (
@@ -56,23 +57,37 @@ function App() {
       {!isMobileOrTablet && <Cursor />}
       <Header isDark={isDark} setIsDark={setIsDark} />
       <main id="container">
-        <Element name="about" className="section-element" id="about">
-          <About />
-        </Element>
-        <Element name="projects" className="section-element" id="projects">
+        <div
+          name="about"
+          className="section-element"
+          style={{ background: "red" }}
+          id="about"
+        >
+          {/* <About /> */}
+        </div>
+        <div
+          name="projects"
+          className="section-element"
+          style={{ background: "green" }}
+          id="projects"
+        >
           {/* <h1>Projects</h1> */}
-          <Projetcs />
-        </Element>
-        <Element
+          {/* <Projetcs /> */}
+        </div>
+        <div
           name="experiences"
           className="section-element"
+          style={{ background: "blue" }}
           id="experiences"
+        ></div>
+        <div
+          name="contacts"
+          className="section-element"
+          style={{ background: "orange" }}
+          id="contacts"
         >
-          <h1>Experiences</h1>
-        </Element>
-        <Element name="contacts" className="section-element" id="contacts">
-          <Contact />
-        </Element>
+          {/* <Contact /> */}
+        </div>
       </main>
     </>
   );

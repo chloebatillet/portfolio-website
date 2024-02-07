@@ -1,9 +1,31 @@
 import { Link } from "react-scroll";
 
 import "./styles.scss";
+import { useEffect, useState } from "react";
 
 function Menu({ setMenuIsOpen }) {
   const nav = ["about", "projects", "experiences", "contacts"];
+
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    setScreenWidth(
+      document.querySelector(".pin-spacer").offsetHeight * 1
+    );
+    console.log("first use effect: " + screenWidth);
+  }, []);
+
+  // console.log(screenWidth);
+  // console.log(window.innerWidth * 4);
+  // console.log(document.querySelector("#container"));
+
+  function reportWindowSize() {
+    console.log("h: " + window.innerHeight, "w: " + window.innerWidth);
+    setScreenWidth(document.querySelector("#container").offsetHeight);
+  }
+
+  // window.onresize = reportWindowSize;
+
   return (
     // Voir pour ajouter balise nav
     <>
@@ -11,16 +33,17 @@ function Menu({ setMenuIsOpen }) {
       {/* Word ------------------------*/}
       {nav.map((e, index) => {
         return (
-          <Link
+          <div
+            // href={`#${e}`}
             key={e}
-            activeClass="is-active"
             className="word"
-            to={e}
-            spy={true}
-            smooth={true}
-            // offset={-100}
-            duration={500}
-            onClick={()=>{setMenuIsOpen(false)}}
+            onClick={() => {
+              setMenuIsOpen(false);
+              window.scrollTo({
+                top: ((screenWidth / 4) * index),
+                behavior: "smooth",
+              });
+            }}
           >
             <span className="index">0{index}.</span>
             {/* Each letter of the word -----------------*/}
@@ -31,7 +54,7 @@ function Menu({ setMenuIsOpen }) {
                 </span>
               );
             })}
-          </Link>
+          </div>
         );
       })}
       {/* </div> */}
@@ -40,3 +63,4 @@ function Menu({ setMenuIsOpen }) {
 }
 
 export default Menu;
+

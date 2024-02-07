@@ -20,8 +20,8 @@ html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scroll-timeline: --squareTimeline y;
-  
-  height: 100vh;
+
+  // height: 100vh;
   transition: all 1s;
 }
 
@@ -69,44 +69,43 @@ body {
 ---------------------- */
 
 #container {
-  height: auto;
-  width: 100vw;
+  // height: auto;
+  // width: 100vw;
   /* set width based on sections */
   height: 100vh;
   width: 400vw;
-  //display: flex;
-  //flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .section-element {
   height: 100vh;
   width: 100vw;
-  border: solid 1px red;
 }
 
-.section-element:last-of-type {
-  position: relative;
-  background-color: v.$white;
-  height: 80vh;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-top: 10vh;
-  flex-direction: row;
-  justify-content: space-between;
+// .section-element:last-of-type {
+//   position: relative;
+//   background-color: v.$white;
+//   // height: 80vh;
+//   padding-left: 15%;
+//   padding-right: 15%;
+//   padding-top: 10vh;
+//   flex-direction: row;
+//   justify-content: space-between;
 
-  &::before {
-    content: "";
-    width: 100%;
-    height: 57px;
-    position: absolute;
-    top: -57px;
-    left: 0;
-    background-size: auto;
-    background-repeat: repeat no-repeat;
-    background-position: 22vw bottom;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 115' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 0C22.4434 -1 28.9842 2 55 20C94.1849 47 121.997 49 158.5 49C198.5 52 200 38 240 44C280 51 320 76 360 76C400 76 440 51 480 46C520 42 560 59 600 72C640 85 680 93 720 98C760 102 800 102 840 89C880 76 920 51 960 53C1000 55 1040 85 1080 81C1120 76 1127.5 51 1147.5 32C1171.48 10 1185.65 0 1200 0V115H1180C1160 115 1120 115 1080 115C1040 115 1000 115 960 115C920 115 880 115 840 115C800 115 760 115 720 115C680 115 640 115 600 115C560 115 520 115 480 115C440 115 400 115 360 115C320 115 280 115 240 115C200 115 160 115 120 115C80 115 40 115 20 115H0V0.0103865Z' fill='%23F9EDE7'/></svg>");
-  }
-}
+//   &::before {
+//     content: "";
+//     width: 100%;
+//     height: 57px;
+//     position: absolute;
+//     top: -57px;
+//     left: 0;
+//     background-size: auto;
+//     background-repeat: repeat no-repeat;
+//     background-position: 22vw bottom;
+//     background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 115' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 0C22.4434 -1 28.9842 2 55 20C94.1849 47 121.997 49 158.5 49C198.5 52 200 38 240 44C280 51 320 76 360 76C400 76 440 51 480 46C520 42 560 59 600 72C640 85 680 93 720 98C760 102 800 102 840 89C880 76 920 51 960 53C1000 55 1040 85 1080 81C1120 76 1127.5 51 1147.5 32C1171.48 10 1185.65 0 1200 0V115H1180C1160 115 1120 115 1080 115C1040 115 1000 115 960 115C920 115 880 115 840 115C800 115 760 115 720 115C680 115 640 115 600 115C560 115 520 115 480 115C440 115 400 115 360 115C320 115 280 115 240 115C200 115 160 115 120 115C80 115 40 115 20 115H0V0.0103865Z' fill='%23F9EDE7'/></svg>");
+//   }
+// }
 
 /*---------------------------
   Round shape

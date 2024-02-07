@@ -17,16 +17,25 @@ function Header({ isDark, setIsDark }) {
 
   useEffect(() => {
     return () => {
-      console.log(isDark);
-    }
-  }, [isDark])
-  
+      //console.log(isDark);
+    };
+  }, [isDark]);
 
   return (
     <header>
       <div className="top-bar">
         <div className="top-bar-content">
-          <div className="logo">Chloé B.</div>
+          <div
+            className="logo"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth", // for smoothly scrolling
+              });
+            }}
+          >
+            Chloé B.
+          </div>
 
           <div style={{ display: "flex", gap: "24px" }}>
             {isDark ? (

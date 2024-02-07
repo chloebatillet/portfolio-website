@@ -5,7 +5,7 @@ import './styles/index.scss'
 import './styles/_reset.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
