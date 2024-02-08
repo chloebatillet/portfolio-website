@@ -60,10 +60,10 @@ function App() {
         <div
           name="about"
           className="section-element"
-          style={{ background: "red" }}
+          // style={{ background: "red" }}
           id="about"
         >
-          {/* <About /> */}
+          <About />
         </div>
         <div
           name="projects"
@@ -72,7 +72,7 @@ function App() {
           id="projects"
         >
           {/* <h1>Projects</h1> */}
-          {/* <Projetcs /> */}
+          <Projetcs />
         </div>
         <div
           name="experiences"
@@ -89,6 +89,13 @@ function App() {
           {/* <Contact /> */}
         </div>
       </main>
+      <div
+        className=""
+        //style={{ background: "pink", width: "100vw", height: "100vh", zIndex: "1"}}
+        id="footer"
+      >
+        <Contact />
+      </div>
     </>
   );
 }

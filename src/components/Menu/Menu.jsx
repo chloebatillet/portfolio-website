@@ -9,9 +9,7 @@ function Menu({ setMenuIsOpen }) {
   const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
-    setScreenWidth(
-      document.querySelector(".pin-spacer").offsetHeight * 1
-    );
+    setScreenWidth(document.querySelector(".pin-spacer").offsetHeight * 1);
     console.log("first use effect: " + screenWidth);
   }, []);
 
@@ -63,4 +61,3 @@ function Menu({ setMenuIsOpen }) {
 }
 
 export default Menu;
-
