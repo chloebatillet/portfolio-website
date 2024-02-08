@@ -11,6 +11,7 @@ import Contact from "./components/Contact/Contact";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Experiences from "./components/Experiences/Experiences";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -68,7 +69,7 @@ function App() {
         <div
           name="projects"
           className="section-element"
-          style={{ background: "green" }}
+          style={{ background: "orange" }}
           id="projects"
         >
           {/* <h1>Projects</h1> */}
@@ -77,17 +78,25 @@ function App() {
         <div
           name="experiences"
           className="section-element"
-          style={{ background: "blue" }}
+          style={{
+            background: "blue",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
           id="experiences"
-        ></div>
-        <div
+        >
+          <Experiences />
+        </div>
+        {/* <div
           name="contacts"
           className="section-element"
           style={{ background: "orange" }}
           id="contacts"
         >
           {/* <Contact /> */}
-        </div>
+        {/* </div> */}
       </main>
       <div
         className=""

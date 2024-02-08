@@ -187,14 +187,14 @@ body.--dark {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .section-element {
 
   }
   #footer {
     height: auto;
     flex-direction: column;
-    gap: 10vh;
+    gap: 5vh;
     align-items: center;
     padding-top: 5vh;
   }
