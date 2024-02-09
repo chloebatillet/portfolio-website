@@ -79,7 +79,7 @@ function App() {
           name="experiences"
           className="section-element"
           style={{
-            background: "blue",
+            // background: "blue",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

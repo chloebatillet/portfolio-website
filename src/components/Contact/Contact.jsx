@@ -57,8 +57,12 @@ function Contact() {
             <h3>Envie de rester en contacts ?</h3>
             <p>On peut se rejoindre sur mes réseaux !</p>
             <span className="networks">
-              <FaGithub />
-              <FaLinkedin />
+              <span>
+                <FaGithub />
+              </span>
+              <span>
+                <FaLinkedin />
+              </span>
             </span>
           </div>
 

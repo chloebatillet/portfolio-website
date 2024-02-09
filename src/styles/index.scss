@@ -178,7 +178,7 @@ body.--dark {
   color: v.$white;
   background-color: v.$black-bg;
 
-  .section-element:last-of-type {
+  #footer {
     background-color: v.$black;
 
     &::before {

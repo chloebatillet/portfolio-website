@@ -19,6 +19,7 @@ const xpList = [
   },
   {
     title: "Stage Développeur React",
+    color: "#E56399",
     dates: "oct 2023 - dec 2023",
     company: "BeGuide",
     details:
@@ -26,6 +27,7 @@ const xpList = [
   },
   {
     title: "Master Management - Innovation",
+    color: "#7F96FF",
     dates: "sept 2022",
     company: "IAE Clermont Auvergne",
     details:
@@ -33,6 +35,8 @@ const xpList = [
   },
   {
     title: "Chargée de communication digitale",
+    color: "#03B5AA",
+
     dates: "avr 2020 - sept 2022",
     company: "Michelin",
     details:
@@ -40,6 +44,8 @@ const xpList = [
   },
   {
     title: "Stage en communication",
+    color: "#E56399",
+
     dates: "sept 2022",
     company: "La Charrette Créole",
     details:
@@ -94,7 +100,7 @@ function Experiences() {
     <div
       className="experiences-wrapper"
       ref={container}
-      onMouseOver={() => {
+      onMouseEnter={() => {
         document.querySelector(".experience-bubble").classList.add("--open");
         positionBubble();
       }}
@@ -105,11 +111,11 @@ function Experiences() {
       {xpList.map((el) => {
         return (
           <div
-            key={el.name}
+            key={el.title}
             className="experiences line"
             data-name={el.title}
-            onMouseEnter={() => {
-              setParagraphBubble(el.details);
+            onMouseOver={() => {
+              setParagraphBubble(el.details);              
             }}
           >
             <span className="experience-details">
@@ -121,10 +127,23 @@ function Experiences() {
         );
       })}
 
-{/* ---------------------------------------------------------------
+      {/* ---------------------------------------------------------------
 Voir pour la mettre au même niveau que le header pour mettre un zindex plus élevé 
 --------------------------------------------------------------- */}
-      <aside className="experience-bubble">{paragrapheBubble}</aside>
+      <aside className="experience-bubble">
+        {paragrapheBubble}
+        <svg
+          className="bubble-bg-svg"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#181717"
+            d="M40.8,-69.3C55.2,-62.3,70.8,-56.1,77.2,-44.7C83.7,-33.2,81.1,-16.6,79.5,-1C77.8,14.7,77.1,29.4,71.1,41.7C65.2,54.1,53.9,64.1,41.2,71.6C28.5,79.2,14.2,84.4,-0.6,85.5C-15.4,86.5,-30.9,83.3,-45.1,76.6C-59.3,69.9,-72.4,59.6,-78.9,46.3C-85.4,32.9,-85.3,16.5,-85.4,-0.1C-85.5,-16.6,-85.8,-33.1,-78.2,-44.5C-70.6,-55.9,-55,-62.2,-40.7,-69.2C-26.3,-76.2,-13.2,-83.9,0,-83.9C13.2,-83.9,26.4,-76.3,40.8,-69.3Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+      </aside>
     </div>
   );
 }
