@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Header from "./components/Header/Header";
 
-import { Element } from "react-scroll";
-
 import About from "./components/About/About";
 import Projetcs from "./components/Projects/Projetcs";
 import Contact from "./components/Contact/Contact";
