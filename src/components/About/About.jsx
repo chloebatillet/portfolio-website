@@ -32,7 +32,6 @@ function About() {
 
   return (
     <div className="about-container" ref={container}>
-      {/* <div className="round-shape"></div> */}
 
       <div className="flower">
         <div></div>

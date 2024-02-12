@@ -252,7 +252,7 @@ body.--dark {
       .logo {
         -webkit-text-stroke: 1px v.$white;
 
-        &:hover {
+        &::before {
           color: v.$white;
         }
       }

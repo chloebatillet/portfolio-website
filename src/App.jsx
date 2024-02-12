@@ -138,7 +138,6 @@ function App() {
         <div
           name="about"
           className="section-element"
-          // style={{ background: "red" }}
           id="about"
         >
           <About />

@@ -9,12 +9,14 @@
   width: calc(var(--size) * 1px);
   height: calc(var(--size) * 1px);
   border-radius: 50%;
-  border: 1px solid v.$black;
+  outline: 1px solid v.$white-bg;
+  outline-offset: 0px;
   z-index: 1000;
   position: fixed;
   pointer-events: none;
   transform: scale(1);
   transition: transform 0.1s;
+  mix-blend-mode: difference;
 
   &.--pointer-down {
     transform: scale(0.8);
@@ -25,7 +27,8 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: v.$black;
+  background-color: v.$white-bg;
+  mix-blend-mode: difference;
   z-index: 1000;
   position: fixed;
 }
