@@ -34,9 +34,26 @@ function Projetcs() {
 
   return (
     <div className="projects-container" ref={container}>
-      <div className="project-box one"></div>
-      <div className="project-box two"></div>
-      <div className="project-box three"></div>
+      <article className="project-box one">
+        <h3 className="article-name" data-text="TokTok">
+          TokTok
+        </h3>
+      </article>
+      <article className="project-box two">
+        <h3 className="article-name" data-text="FitnessBuddy">
+          FitnessBuddy
+        </h3>
+      </article>
+      <article className="project-box three">
+        <h3 className="article-name" data-text="Portfolio">
+          Portfolio
+        </h3>
+      </article>
+      <article className="project-box three">
+        <h3 className="article-name" data-text="BeGuide">
+          BeGuide
+        </h3>
+      </article>
     </div>
   );
 }

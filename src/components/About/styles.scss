@@ -1,4 +1,5 @@
 @use "../../styles/variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Teko:wght@300;400;500;600;700&display=swap");
 
 .flower {
   width: 50px;
@@ -22,6 +23,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    word-break: normal;
+    min-width: 300px;
+    width: 800px;
+    font-family: "Red Hat Display", sans-serif;
+  }
+
+  h2 {
+    font-weight: lighter;
+  }
 }
 
 .section-element {
@@ -104,9 +118,6 @@
     }
   }
 
-  h1 {
-    width: 50%;
-  }
 
   .scroll-indicator {
     transition: all 0.3s;

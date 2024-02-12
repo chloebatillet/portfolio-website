@@ -53,6 +53,7 @@ function App() {
       },
     });
 
+    // Experiences ------------------------------------
     gsap.to(".line", {
       width: "100%",
       stagger: 0.2,
@@ -60,10 +61,73 @@ function App() {
       scrollTrigger: {
         trigger: ".line",
         start: "left 90%",
-        end: "right 30%",
+        end: "right 40%",
         scrub: 1,
-        markers: true,
+        // markers: true,
         containerAnimation: tween,
+      },
+    });
+
+    // Projects ------------------------------------
+    let projects = gsap.utils.toArray(".project-box");
+
+    gsap.to(projects, {
+      y: -20,
+      stagger: 0.2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".projects-container",
+        start: "left 90%",
+        end: "center 60%",
+        scrub: 2,
+        containerAnimation: tween,
+      },
+    });
+
+    // Contacts ---------------------------------------
+    // gsap.to(".illustration-svg", {
+    //   rotate: 360,
+    //   scale: 1,
+    //   scrollTrigger: {
+    //     trigger: ".illustration-svg",
+    //     start: "left 10%",
+    //     end: "right 60%",
+    //     scrub: 1,
+    //     containerAnimation: '#footer',
+    //     markers: true,
+    //   }
+    // });
+
+    // gsap.to(".hand", {
+    //   scrollTrigger: {
+    //     trigger: ".illustration-svg",
+    //     start: "top 65%",
+    //     end: "top 50%",
+    //     scrub: 1,
+    //     containerAnimation: tween,
+    //     //markers: true,
+    //   },
+    //   translateY: -200,
+    //   scale: 1,
+    // });
+
+    let width = document.querySelector("#projects").offsetWidth;
+
+    ScrollTrigger.create({
+      trigger: "#projects",
+      start: "top top",
+      //endTrigger: "bottom bottom",
+      end: `bottom 50%-=${width}`,
+      onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+      onUpdate: (self) => {
+        console.log(
+          "progress:",
+          self.progress.toFixed(3),
+          "direction:",
+          self.direction,
+          "velocity",
+          self.getVelocity()
+        );
       },
     });
   });
@@ -84,7 +148,6 @@ function App() {
         <div
           name="projects"
           className="section-element"
-          style={{ background: "orange" }}
           id="projects"
         >
           {/* <h1>Projects</h1> */}

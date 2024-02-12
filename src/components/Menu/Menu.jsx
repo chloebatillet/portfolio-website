@@ -1,5 +1,3 @@
-import { Link } from "react-scroll";
-
 import "./styles.scss";
 import { useEffect, useState } from "react";
 
@@ -38,7 +36,7 @@ function Menu({ setMenuIsOpen }) {
             onClick={() => {
               setMenuIsOpen(false);
               window.scrollTo({
-                top: ((screenWidth / 4) * index),
+                top: (screenWidth / 3) * index,
                 behavior: "smooth",
               });
             }}

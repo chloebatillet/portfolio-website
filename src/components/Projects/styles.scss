@@ -1,31 +1,58 @@
+@use "../../styles/variables" as v;
+
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  margin: auto;
+  width: 50%;
   gap: 30px;
+  margin: auto;
 }
 
 .project-box {
-  width: 250px;
-  height: 250px;
-  background-color: black;
-  //animation: enter both;
-  //animation-timeline: view();
+  flex-grow: 1;
+  height: 50%;
+  background-color: v.$black;
+  color: v.$white;
+  font-size: 3rem;
+  font-weight: bold;
+  writing-mode: vertical-lr;
+  // transform: scale(1);
+  // transition: all 1s;
 
-  &:nth-child(1) {
-    transform: translateY(-100px);
+  &:nth-child(odd) {
+    transform: translateY(-20%);
   }
 
-  &:nth-child(2) {
-    transform: translateY(50px);
+  &:nth-child(even) {
+    transform: translateY(20%);
   }
 
-  &:nth-child(3) {
-    transform: translateY(-200px);
+  .article-name {
+    position: relative;
+    overflow: hidden;
+    -webkit-text-stroke: 1px v.$white;
+    color: transparent;
+
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      z-index: 1;
+      color: v.$white;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s ease-out;
+    }
+  }
+
+  &:hover {
+    .article-name {
+      &::before {
+        height: 100%;
+      }
+    }
   }
 }
 

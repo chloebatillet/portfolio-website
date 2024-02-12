@@ -30,7 +30,6 @@ function About() {
     { scope: container }
   );
 
-
   return (
     <div className="about-container" ref={container}>
       {/* <div className="round-shape"></div> */}
@@ -42,7 +41,12 @@ function About() {
         <div></div>
       </div>
 
-      <h1>Hello, je suis Chloé, développeuse fullstack JavaScript</h1>
+      <div className="titles">
+        <h1 className="main-title">
+          Hello, je suis Chloé, développeuse fullstack JavaScript
+        </h1>
+        <h2>Je conçois et développe des applications web</h2>
+      </div>
 
       <div className="scroll-indicator">
         scroll{" "}

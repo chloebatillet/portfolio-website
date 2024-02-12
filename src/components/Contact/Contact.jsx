@@ -3,8 +3,6 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
 
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -13,7 +11,7 @@ import { PiCoffee } from "react-icons/pi";
 
 import "./styles.scss";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function Contact() {
   const contactsContainer = useRef();
@@ -24,29 +22,15 @@ function Contact() {
     () => {
 
       gsap.to(".illustration-svg", {
-        scrollTrigger: {
-          trigger: ".illustration-svg",
-          start: "top 80%",
-          end: "top 60%",
-          scrub: 1,
-          //markers: true,
-        },
-        containerAnimation: "#footer",
         rotate: 360,
         scale: 1,
-      });
-
-      gsap.to(".hand", {
         scrollTrigger: {
           trigger: ".illustration-svg",
-          start: "top 65%",
-          end: "top 50%",
+          start: "top 90%",
+          end: "top 95%",
           scrub: 1,
-          //markers: true,
+          // markers: true,
         },
-        containerAnimation: "#footer",
-        translateY: -200,
-        scale: 1,
       });
 
       gsap.to(".hand", { rotate: -40, duration: 2, repeat: -1, yoyo: true });
@@ -62,12 +46,12 @@ function Contact() {
             <h3>Envie de rester en contacts ?</h3>
             <p>On peut se rejoindre sur mes réseaux !</p>
             <span className="networks">
-              <span>
+              <a href="https://github.com/chloebatillet">
                 <FaGithub />
-              </span>
-              <span>
+              </a>
+              <a href="https://github.com/chloebatillet">
                 <FaLinkedin />
-              </span>
+              </a>
             </span>
           </div>
 
@@ -113,7 +97,7 @@ function Contact() {
             rows="8"
             placeholder="Que voulez-vous me dire..."
           ></textarea>
-          <input type="submit"></input>
+          <input type="submit" value="Envoyer"></input>
         </form>
       </div>
 
@@ -122,7 +106,7 @@ function Contact() {
         <GoHeart className="icon" />
         et
         <PiCoffee className="icon" />
-        par Chloé Batillet - {year}
+        par Chloé Batillet © {year}
       </footer>
     </>
   );

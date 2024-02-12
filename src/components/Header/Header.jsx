@@ -27,10 +27,11 @@ function Header({ isDark, setIsDark }) {
         <div className="top-bar-content">
           <div
             className="logo"
+            data-text="Chloé B."
             onClick={() => {
               window.scrollTo({
                 top: 0,
-                behavior: "smooth", // for smoothly scrolling
+                behavior: "smooth",
               });
             }}
           >
