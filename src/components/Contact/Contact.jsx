@@ -3,6 +3,9 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
@@ -10,13 +13,15 @@ import { PiCoffee } from "react-icons/pi";
 
 import "./styles.scss";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin);
+
 function Contact() {
   const contactsContainer = useRef();
   const year = new Date().getFullYear();
 
+
   useGSAP(
     () => {
-      let tl = gsap.timeline();
 
       gsap.to(".illustration-svg", {
         scrollTrigger: {

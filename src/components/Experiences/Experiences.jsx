@@ -2,12 +2,13 @@ import React, { useRef, useState } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { GoPlus } from "react-icons/go";
 
 import "./styles.scss";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const xpList = [
   {
@@ -68,33 +69,26 @@ function Experiences() {
     }
   };
 
-  useGSAP(
-    () => {
-      gsap.to(".line", {
-        scrollTrigger: {
-          trigger: ".line",
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 1,
-          markers: true,
-        },
-        width: "100%",
-        delay: 0.5,
-        stagger: 0.2,
-        ease: "sine.out",
-        force3D: true,
-        containerAnimation: ".exeriences-wrapper",
-      });
-
-      //   gsap.set(".--open", {
-      //     //width: "100%",
-      //     scale: 1,
-      //     opacity: 1,
-      //     //ease: "sine.out",
-      //   });
-    },
-    { scope: container }
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.to(".line", {
+  //       scrollTrigger: {
+  //         trigger: ".line",
+  //         start: "top 90%",
+  //         end: "top 10%",
+  //         scrub: 1,
+  //         markers: true,
+  //       },
+  //       width: "100%",
+  //       delay: 0.5,
+  //       stagger: 0.2,
+  //       ease: "sine.out",
+  //       force3D: true,
+  //       containerAnimation: ".pin-spacer",
+  //       revertOnUpdate: true,
+  //     });
+  //   }
+  // );
 
   return (
     <div
