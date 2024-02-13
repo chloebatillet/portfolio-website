@@ -1,24 +1,28 @@
+import { useLocation } from "react-router-dom";
 import "./styles.scss";
 import { useEffect, useState } from "react";
 
 function Menu({ setMenuIsOpen }) {
   const nav = ["about", "projects", "experiences", "contacts"];
+  const location = useLocation();
+
+  //console.log(location.pathname.includes('projet'));
 
   const [screenWidth, setScreenWidth] = useState(0);
 
-  useEffect(() => {
-    setScreenWidth(document.querySelector(".pin-spacer").offsetHeight * 1);
-    console.log("first use effect: " + screenWidth);
-  }, []);
+  // useEffect(() => {
+  //   setScreenWidth(document.querySelector("#container").offsetHeight * 1);
+  //   console.log("first use effect: " + screenWidth);
+  // }, []);
 
   // console.log(screenWidth);
   // console.log(window.innerWidth * 4);
   // console.log(document.querySelector("#container"));
 
-  function reportWindowSize() {
-    console.log("h: " + window.innerHeight, "w: " + window.innerWidth);
-    setScreenWidth(document.querySelector("#container").offsetHeight);
-  }
+  // function reportWindowSize() {
+  //   console.log("h: " + window.innerHeight, "w: " + window.innerWidth);
+  //   setScreenWidth(document.querySelector("#container").offsetHeight);
+  // }
 
   // window.onresize = reportWindowSize;
 
