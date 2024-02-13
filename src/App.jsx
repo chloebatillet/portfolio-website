@@ -10,6 +10,7 @@ import Experiences from "./components/Experiences/Experiences";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Presentation from "./components/Presentation/Presentation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +47,7 @@ function App() {
         scrub: 2,
         invalidateOnRefresh: true,
         //* Interfère avec les liens du menu
-        //snap: 1 / (horizontalSections.length - 1),
+        snap: 1 / (horizontalSections.length - 1),
         end: () => "+=" + document.querySelector("#container").offsetWidth,
       },
     });
@@ -135,18 +136,15 @@ function App() {
       {!isMobileOrTablet && <Cursor />}
       <Header isDark={isDark} setIsDark={setIsDark} />
       <main id="container">
-        <div
-          name="about"
-          className="section-element"
-          id="about"
-        >
+        <div name="about" className="section-element" id="about">
+          {/* <div className="bubble"></div> */}
           <About />
         </div>
-        <div
-          name="projects"
-          className="section-element"
-          id="projects"
-        >
+        <div name="about" className="section-element" id="about">
+          {/* <div className="bubble"></div> */}
+          <Presentation />
+        </div>
+        <div name="projects" className="section-element" id="projects">
           {/* <h1>Projects</h1> */}
           <Projetcs />
         </div>

@@ -33,6 +33,31 @@
   position: fixed;
 }
 
+.--plus {
+  width: 0px;
+  height: 0px;
+  transform-origin: center;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background-color: v.$white-bg;
+    position: absolute;
+    transform: translate(-9px, 2px);
+  }
+
+  &::after {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background-color: v.$white-bg;
+    position: absolute;
+    transform-origin: center;
+    transform: rotate(90deg) translate(2px, 9px);
+  }
+}
+
 body.--dark {
   .cursor {
     border-color: v.$white;

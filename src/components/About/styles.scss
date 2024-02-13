@@ -24,12 +24,17 @@
   justify-content: center;
   flex-direction: column;
 
+  .titles {
+    width: 70%;
+    text-align: center;
+  }
+
   h1 {
     font-size: 3rem;
     font-weight: bold;
     word-break: normal;
-    min-width: 300px;
-    width: 800px;
+    //width: 70%;
+    //min-width: 300px;
     font-family: "Red Hat Display", sans-serif;
   }
 

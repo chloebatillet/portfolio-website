@@ -1,0 +1,14 @@
+.presentation-wrapper {
+    //background-color: lightblue;
+    width: 70%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10%;
+    margin: auto;
+
+    &:nth-child(n) {
+    }
+}

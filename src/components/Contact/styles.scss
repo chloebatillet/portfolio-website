@@ -51,12 +51,17 @@
   gap: 12px;
   font-size: x-large;
   margin-top: 12px;
+  overflow: hidden;
+  // background-color: red;
 
   :nth-child(n) {
-    transition: all 0.2s;
+    transition: all 0.1s;
+    overflow: hidden;
+    position: relative;
+    // color: transparent;
 
-    & :hover {
-      color: grey;
+    &:hover {
+      color: v.$accent;
     }
   }
 }
