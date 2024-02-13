@@ -75,12 +75,7 @@ function Contact() {
         </div>
 
         <form action="get" className="contact-form">
-          <h3>Ou communiquer par mail : </h3>
-          {/* <label htmlFor="lastname">Nom</label>
-      <input type="text" name="lastname" id="lastname" placeholder="MUSK" />
-
-      <label htmlFor="name">Prénom</label>
-      <input type="text" name="name" id="name" placeholder="Elon" /> */}
+          <h3>Ou communiquer par mail</h3>
 
           <label htmlFor="email">Email</label>
           <input

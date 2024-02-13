@@ -15,24 +15,47 @@ import Presentation from "./components/Presentation/Presentation";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(
+  //   JSON.parse(localStorage.getItem("darkMode"))
+  // );
+  const [isDark, setIsDark] = useState(localStorage.getItem("darkMode"));
   const isMobileOrTablet =
     /Android|webOS|iPhone|iPad|iPod|Macintosh|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     );
 
+  console.log(isDark);
+
   useEffect(() => {
+    /**
+     *
+     * A la première visite :
+     * - regarde si une donnée est présente dans le localStorage
+     * - sinon prend la valeur dans les préférences utilisateurs
+     * + écouteurs d'événements pour s'adapter aux pref utilisateurs
+     *
+     */
+
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
-    if (mq.matches || isDark) {
-      setIsDark(true);
-      document.querySelector("body").classList.add("--dark");
-    } else {
-      setIsDark(false);
-      document.querySelector("body").classList.remove("--dark");
-    }
-
     mq.addEventListener("change", (evt) => setIsDark(evt.matches));
+
+    if (localStorage.getItem("darkMode")) {
+      setIsDark(JSON.parse(localStorage.getItem("darkMode")));
+    } else if (mq.matches) {
+      setIsDark(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // gestion du toggle de la class dark
+    if (isDark) {
+      document.querySelector("body").classList.add("--dark");
+      localStorage.setItem("darkMode", true);
+    } else {
+      document.querySelector("body").classList.remove("--dark");
+      localStorage.setItem("darkMode", false);
+    }
   }, [isDark]);
 
   useGSAP(() => {
@@ -110,25 +133,25 @@ function App() {
     //   scale: 1,
     // });
 
-    let width = document.querySelector("#projects").offsetWidth;
+    // let width = document.querySelector("#projects").offsetWidth;
 
-    ScrollTrigger.create({
-      trigger: "#projects",
-      start: "top top",
-      //endTrigger: "bottom bottom",
-      end: `bottom 50%-=${width}`,
-      onToggle: (self) => console.log("toggled, isActive:", self.isActive),
-      onUpdate: (self) => {
-        console.log(
-          "progress:",
-          self.progress.toFixed(3),
-          "direction:",
-          self.direction,
-          "velocity",
-          self.getVelocity()
-        );
-      },
-    });
+    // ScrollTrigger.create({
+    //   trigger: "#projects",
+    //   start: "top top",
+    //   //endTrigger: "bottom bottom",
+    //   end: `bottom 50%-=${width}`,
+    //   onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+    //   onUpdate: (self) => {
+    //     console.log(
+    //       "progress:",
+    //       self.progress.toFixed(3),
+    //       "direction:",
+    //       self.direction,
+    //       "velocity",
+    //       self.getVelocity()
+    //     );
+    //   },
+    // });
   });
 
   return (
