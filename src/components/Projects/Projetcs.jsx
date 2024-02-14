@@ -28,6 +28,7 @@ function Projetcs() {
           <h3 className="article-name" data-text="TokTok">
             TokTok
           </h3>
+          <p className="type">Application web</p>
         </Link>
       </article>
       <article
@@ -39,9 +40,12 @@ function Projetcs() {
           changeCursor(false);
         }}
       >
-        <h3 className="article-name" data-text="FitnessBuddy">
-          FitnessBuddy
-        </h3>
+        <Link to="/projet/12" className="link">
+          <h3 className="article-name" data-text="FitnessBuddy">
+            FitnessBuddy
+          </h3>
+          <p className="type">Application web</p>
+        </Link>
       </article>
       <article
         className="project-box three"
@@ -52,9 +56,12 @@ function Projetcs() {
           changeCursor(false);
         }}
       >
-        <h3 className="article-name" data-text="Portfolio">
-          Portfolio
-        </h3>
+        <Link to="/projet/12" className="link">
+          <h3 className="article-name" data-text="Portfolio">
+            Portfolio
+          </h3>
+          <p className="type">Site web</p>
+        </Link>
       </article>
       <article
         className="project-box three"
@@ -65,9 +72,12 @@ function Projetcs() {
           changeCursor(false);
         }}
       >
-        <h3 className="article-name" data-text="BeGuide">
-          BeGuide
-        </h3>
+        <Link to="/projet/12" className="link">
+          <h3 className="article-name" data-text="BeGuide">
+            BeGuide
+          </h3>
+          <p className="type">Extension web</p>
+        </Link>
       </article>
     </div>
   );

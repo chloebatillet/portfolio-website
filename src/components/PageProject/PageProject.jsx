@@ -22,29 +22,32 @@ function PageProject() {
         </div>
 
         <article className="project-description">
-          <header>
-            <img src={img}></img>
-            <h2>Blablabla</h2>
-          </header>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            perferendis nostrum soluta quo mollitia harum deserunt, aliquid
-            voluptates? Dignissimos quasi ea maiores provident, magni nemo
-            repellat ut expedita corrupti eaque.
-          </p>
-          <div className="tags">
-            <Chip text={"react"} />
-            <Chip text={"axios"} />
-            <Chip text={"gsap"} />
-          </div>
+          <img src={img}></img>
+          <div className="project-description">
+            <header>
+              <h2>Blablabla</h2>
+              <p className="type">Application web</p>
+            </header>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
+              perferendis nostrum soluta quo mollitia harum deserunt, aliquid
+              voluptates? Dignissimos quasi ea maiores provident, magni nemo
+              repellat ut expedita corrupti eaque.
+            </p>
+            <div className="tags">
+              <Chip text={"react"} />
+              <Chip text={"axios"} />
+              <Chip text={"gsap"} />
+            </div>
 
-          <div className="project-links">
-            <a href="https://github.com/chloebatillet" target="_blank">
-              <FaGithub />
-            </a>
-            <a href="https://github.com/chloebatillet" target="_blank">
-              <CgWebsite />
-            </a>
+            <div className="project-links">
+              <a href="https://github.com/chloebatillet" target="_blank">
+                <FaGithub />
+              </a>
+              <a href="https://github.com/chloebatillet" target="_blank">
+                <CgWebsite />
+              </a>
+            </div>
           </div>
         </article>
       </section>
