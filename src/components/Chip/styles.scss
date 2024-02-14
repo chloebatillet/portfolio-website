@@ -1,0 +1,21 @@
+@use "./../../styles/variables" as v;
+
+.chip-tag {
+  border: solid 1px v.$black;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: lowercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: border-color 1s;
+}
+
+body.--dark {
+  .chip-tag {
+    border-color: v.$white;
+  }
+}

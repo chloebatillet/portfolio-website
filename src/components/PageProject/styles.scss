@@ -1,0 +1,69 @@
+@use "../../styles/variables" as v;
+
+.project-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: v.$white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  .project-container {
+    width: 70%;
+    max-width: 900px;
+    margin-top: 16vh;
+
+    .projects-navigation {
+      width: 100%;
+      display: inline-flex;
+      justify-content: space-between;
+      margin-bottom: 4vh;
+
+      .arrow-icon {
+        width: fit-content;
+        height: 100%;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: absolute;
+          transform: scale(2);
+          transition: background-color 0.2s;
+        }
+
+        &:hover::before {
+          background-color: rgba(122, 122, 122, 0.253);
+        }
+      }
+    }
+
+    .project-description {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 4vh;
+    }
+
+    .tags {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .project-links {
+      display: inline-flex;
+      gap: 24px;
+      align-self: end;
+      font-size: larger;
+    }
+  }
+}
+
+body.--dark {
+  .project-wrapper {
+    background-color: v.$black;
+  }
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 function Projetcs() {
@@ -19,10 +20,15 @@ function Projetcs() {
         onMouseOut={() => {
           changeCursor(false);
         }}
+        onMouseDown={() => {
+          changeCursor(false);
+        }}
       >
-        <h3 className="article-name" data-text="TokTok">
-          TokTok
-        </h3>
+        <Link to="/projet/12" className="link">
+          <h3 className="article-name" data-text="TokTok">
+            TokTok
+          </h3>
+        </Link>
       </article>
       <article
         className="project-box two"

@@ -1,12 +1,9 @@
-import { useLocation } from "react-router-dom";
 import "./styles.scss";
 import { useEffect, useState } from "react";
 
 function Menu({ setMenuIsOpen }) {
   const nav = ["about", "projects", "experiences", "contacts"];
-  const location = useLocation();
 
-  //console.log(location.pathname.includes('projet'));
 
   const [screenWidth, setScreenWidth] = useState(0);
 
