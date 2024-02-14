@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import { Routes, Route, useLocation, Outlet } from "react-router-dom";
-import PageProject from "./components/PageProject/PageProject";
+
+import { BrowserRouter as Router } from "react-router-dom";
+
+import AnimatedRoutes from "./AnimatedRoutes";
 
 function App() {
-  // const [isDark, setIsDark] = useState(
-  //   JSON.parse(localStorage.getItem("darkMode"))
-  // );
   const [isDark, setIsDark] = useState(localStorage.getItem("darkMode"));
   const isMobileOrTablet =
     /Android|webOS|iPhone|iPad|iPod|Macintosh|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -48,11 +46,11 @@ function App() {
   }, [isDark]);
 
   return (
-    <>
+    <Router>
       {!isMobileOrTablet && <Cursor />}
       <Header isDark={isDark} setIsDark={setIsDark} />
-      <Outlet />
-    </>
+      <AnimatedRoutes />
+    </Router>
   );
 }
 

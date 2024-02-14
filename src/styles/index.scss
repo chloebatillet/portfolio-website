@@ -137,6 +137,27 @@ body {
   }
 }
 
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: v.$white;
+  width: 100%;
+  height: 100vh;
+  transform-origin: bottom;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: v.$white;
+  width: 100%;
+  height: 100vh;
+  transform-origin: top;
+}
+
+
 body.--dark {
   color: v.$white;
   background-color: v.$black-bg;
@@ -152,8 +173,15 @@ body.--dark {
       background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 115' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 0C22.4434 -1 28.9842 2 55 20C94.1849 47 121.997 49 158.5 49C198.5 52 200 38 240 44C280 51 320 76 360 76C400 76 440 51 480 46C520 42 560 59 600 72C640 85 680 93 720 98C760 102 800 102 840 89C880 76 920 51 960 53C1000 55 1040 85 1080 81C1120 76 1127.5 51 1147.5 32C1171.48 10 1185.65 0 1200 0V115H1180C1160 115 1120 115 1080 115C1040 115 1000 115 960 115C920 115 880 115 840 115C800 115 760 115 720 115C680 115 640 115 600 115C560 115 520 115 480 115C440 115 400 115 360 115C320 115 280 115 240 115C200 115 160 115 120 115C80 115 40 115 20 115H0V0.0103865Z' fill='%23181717'/></svg>");
     }
   }
-}
 
+  .slide-in {
+    background-color: v.$black;
+  }
+
+  .slide-out {
+    background-color: v.$black;
+  }
+}
 
 @media only screen and (max-width: 900px) {
   #footer {
