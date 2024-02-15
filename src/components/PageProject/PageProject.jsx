@@ -34,8 +34,6 @@ function PageProject() {
 
   useEffect(() => {
     setProject(data.projects[index]);
-
-    
   }, [index])
 
   const nextProject = () => {

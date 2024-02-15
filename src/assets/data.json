@@ -32,5 +32,37 @@
       "github": "https://github.com/chloebatillet",
       "website": "https://github.com/chloebatillet"
     }
+  ],
+  "experiences": [
+    {
+      "title": "Diplôme DWWM",
+      "dates": "dec 2023",
+      "company": "O'Clock",
+      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum!"
+    },
+    {
+      "title": "Stage Développeur React",
+      "dates": "oct 2023 - dec 2023",
+      "company": "BeGuide",
+      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum! Non, tempore reiciendis dignissimos molestiae praesentium quisquam."
+    },
+    {
+      "title": "Master Management - Innovation",
+      "dates": "sept 2022",
+      "company": "IAE Clermont Auvergne",
+      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum! Non, tempore reiciendis dignissimos molestiae praesentium quisquam, dolorem ea nulla impedit, repellat optio libero ipsum."
+    },
+    {
+      "title": "Chargée de communication digitale",
+      "dates": "avr 2020 - sept 2022",
+      "company": "Michelin",
+      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni."
+    },
+    {
+      "title": "Stage en communication",
+      "dates": "sept 2022",
+      "company": "La Charrette Créole",
+      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum! Non, tempore reiciendis dignissimos molestiae praesentium quisquam, dolorem ea nulla impedit, repellat optio libero ipsum."
+    }
   ]
 }

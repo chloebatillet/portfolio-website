@@ -19,8 +19,6 @@ function Header({ isDark, setIsDark }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location.pathname.includes("projet"));
-
   return (
     <header>
       <div className="top-bar">
