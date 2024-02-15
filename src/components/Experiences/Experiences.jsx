@@ -16,8 +16,8 @@ function Experiences() {
 
     if (bubble) {
       window.addEventListener("mousemove", (e) => {
-        bubble.style.top = `calc(${e.clientY}px - 50px)`;
-        bubble.style.left = `calc(${e.clientX}px - 50px)`;
+        bubble.style.top = `calc(${e.clientY}px - 150px)`;
+        bubble.style.left = `calc(${e.clientX}px + 30px)`;
       });
     }
   };
