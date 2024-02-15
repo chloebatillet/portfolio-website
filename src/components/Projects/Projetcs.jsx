@@ -1,84 +1,18 @@
-import { Link } from "react-router-dom";
 import "./styles.scss";
 
+import data from "../../assets/data.json";
+import ProjectBox from "./ProjectBox/ProjectBox";
+
 function Projetcs() {
-  const changeCursor = (condition) => {
-    if (condition) {
-      document.querySelector(".inner-cursor").classList.add("--plus");
-    } else {
-      document.querySelector(".inner-cursor").classList.remove("--plus");
-    }
-  };
+  const projects = data.projects;
 
   return (
     <div className="projects-container">
-      <article
-        className="project-box one"
-        onMouseOver={() => {
-          changeCursor(true);
-        }}
-        onMouseOut={() => {
-          changeCursor(false);
-        }}
-        onMouseDown={() => {
-          changeCursor(false);
-        }}
-      >
-        <Link to="/projet/12" className="link">
-          <h3 className="article-name" data-text="TokTok">
-            TokTok
-          </h3>
-          <p className="type">Application web</p>
-        </Link>
-      </article>
-      <article
-        className="project-box two"
-        onMouseOver={() => {
-          changeCursor(true);
-        }}
-        onMouseOut={() => {
-          changeCursor(false);
-        }}
-      >
-        <Link to="/projet/12" className="link">
-          <h3 className="article-name" data-text="FitnessBuddy">
-            FitnessBuddy
-          </h3>
-          <p className="type">Application web</p>
-        </Link>
-      </article>
-      <article
-        className="project-box three"
-        onMouseOver={() => {
-          changeCursor(true);
-        }}
-        onMouseOut={() => {
-          changeCursor(false);
-        }}
-      >
-        <Link to="/projet/12" className="link">
-          <h3 className="article-name" data-text="Portfolio">
-            Portfolio
-          </h3>
-          <p className="type">Site web</p>
-        </Link>
-      </article>
-      <article
-        className="project-box three"
-        onMouseOver={() => {
-          changeCursor(true);
-        }}
-        onMouseOut={() => {
-          changeCursor(false);
-        }}
-      >
-        <Link to="/projet/12" className="link">
-          <h3 className="article-name" data-text="BeGuide">
-            BeGuide
-          </h3>
-          <p className="type">Extension web</p>
-        </Link>
-      </article>
+      {projects.map((project, index) => {
+        return (
+          <ProjectBox key={project.name} name={project.name} type={project.type} index={index} />
+        );
+      })}
     </div>
   );
 }

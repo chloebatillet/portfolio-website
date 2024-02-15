@@ -13,7 +13,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/projet/:id" element={<PageProject />} />
+        <Route path="/projet" element={<PageProject />} />
       </Routes>
     </AnimatePresence>
   );

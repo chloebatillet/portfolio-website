@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "name": "TokTok",
+      "type": "Application web",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
+      "tags": ["react", "redux", "express", "sequelize", "JWT", "MaterialUi"],
+      "github": "https://github.com/chloebatillet",
+      "website": "https://github.com/chloebatillet"
+    },
+    {
+      "name": "FitnessBuddy",
+      "type": "Application web",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
+      "tags": ["react", "express", "sequelize", "JWT"],
+      "github": "https://github.com/chloebatillet",
+      "website": "https://github.com/chloebatillet"
+    },
+    {
+      "name": "Portfolio",
+      "type": "Site web",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
+      "tags": ["react", "gsap", "framer.motion"],
+      "github": "https://github.com/chloebatillet",
+      "website": "https://github.com/chloebatillet"
+    },
+    {
+      "name": "BeGuide",
+      "type": "Extension web",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
+      "tags": ["react", "redux", "phpmyadmin", "mysql", "appsmith"],
+      "github": "https://github.com/chloebatillet",
+      "website": "https://github.com/chloebatillet"
+    }
+  ]
+}

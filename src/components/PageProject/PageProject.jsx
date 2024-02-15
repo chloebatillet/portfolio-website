@@ -1,4 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+
+import Chip from "../Chip/Chip";
+
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
@@ -6,12 +10,20 @@ import { CgWebsite } from "react-icons/cg";
 import { motion } from "framer-motion";
 
 import "./styles.scss";
-import Chip from "../Chip/Chip";
 
 import img from "../../assets/giphy.gif";
+import data from "../../assets/data.json";
 
 function PageProject() {
-  
+  let { state } = useLocation();
+
+  console.log(state);
+
+  const [index, setIndex] = useState(state.id);
+  const [project, setProject] = useState(data.projects[state.id]);
+
+  const length = data.projects.length;
+
   // Reset la position du scroll sur la page
   useEffect(() => {
     window.scrollTo({
@@ -20,14 +32,31 @@ function PageProject() {
     });
   }, []);
 
+  useEffect(() => {
+    setProject(data.projects[index]);
+
+    
+  }, [index])
+
+  const nextProject = () => {
+    setIndex((prev) => prev === length -1 ? 0 : prev + 1);
+    console.log(state.id);
+  };
+
+  const prevProject = () => {
+    setIndex((prev) => (prev === 0 ? length - 1 : prev - 1));
+  };
+
+
+
   return (
     <main className="project-wrapper">
       <section className="project-container">
         <div className="projects-navigation">
-          <span className="arrow-icon">
+          <span className="arrow-icon" onClick={() => prevProject()}>
             <FaAngleLeft />
           </span>
-          <span className="arrow-icon">
+          <span className="arrow-icon" onClick={() => nextProject()}>
             <FaAngleRight />
           </span>
         </div>
@@ -36,26 +65,21 @@ function PageProject() {
           <img src={img}></img>
           <div className="project-description">
             <header>
-              <h2>Blablabla</h2>
-              <p className="type">Application web</p>
+              <h2>{project.name}</h2>
+              <p className="type">{project.type}</p>
             </header>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-              perferendis nostrum soluta quo mollitia harum deserunt, aliquid
-              voluptates? Dignissimos quasi ea maiores provident, magni nemo
-              repellat ut expedita corrupti eaque.
-            </p>
+            <p>{project.description}</p>
             <div className="tags">
-              <Chip text={"react"} />
-              <Chip text={"axios"} />
-              <Chip text={"gsap"} />
+              {project.tags.map((t) => {
+                return <Chip key={t} text={t} />;
+              })}
             </div>
 
             <div className="project-links">
-              <a href="https://github.com/chloebatillet" target="_blank">
+              <a href={project.github} target="_blank">
                 <FaGithub />
               </a>
-              <a href="https://github.com/chloebatillet" target="_blank">
+              <a href={project.website} target="_blank">
                 <CgWebsite />
               </a>
             </div>
