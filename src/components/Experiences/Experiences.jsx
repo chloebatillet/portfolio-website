@@ -6,10 +6,31 @@ import "./styles.scss";
 
 import data from "../../assets/data.json";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Experiences() {
   const [paragrapheBubble, setParagraphBubble] = useState("");
   const container = useRef();
+
+  useGSAP(() => {
+    gsap.to(".line", {
+      width: "100%",
+      stagger: 0.2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".line",
+        start: "left 90%",
+        end: "right 40%",
+        scrub: 1,
+        // markers: true,
+        // containerAnimation: tween,
+      },
+    });
+  })
 
   const positionBubble = () => {
     const bubble = document.querySelector(".--open");

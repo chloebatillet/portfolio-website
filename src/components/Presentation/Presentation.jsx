@@ -24,14 +24,14 @@ function Presentation() {
         <p>J'ai déjà travaillé avec ces technos :</p>
         <div className="tags">
           {data.about.techno.map((e) => {
-            return <Chip text={e} />;
+            return <Chip key={e} text={e} />;
           })}
         </div>
         <br />
         <p>Et ces outils :</p>
         <div className="tags">
           {data.about.tools.map((e) => {
-            return <Chip text={e} />;
+            return <Chip key={e} text={e} />;
           })}
         </div>
       </aside>

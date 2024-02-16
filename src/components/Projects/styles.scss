@@ -63,7 +63,8 @@
     position: relative;
     overflow: hidden;
     -webkit-text-stroke: 1px v.$white;
-    color: transparent;
+    color: v.$black; // pour le mobile 
+
 
     &::before {
       content: attr(data-text);
