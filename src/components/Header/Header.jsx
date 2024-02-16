@@ -20,7 +20,7 @@ function Header({ isDark, setIsDark }) {
   const navigate = useNavigate();
 
   return (
-    <header>
+    <header id="header">
       <div className="top-bar">
         <div className="top-bar-content">
           {/* Logo */}

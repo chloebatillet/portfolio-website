@@ -137,6 +137,10 @@ body {
   }
 }
 
+/* ------------------------------
+  Page transitions 
+------------------------------ */
+
 .slide-in {
   position: fixed;
   top: 0;
@@ -201,5 +205,6 @@ body.--dark {
     gap: 5vh;
     align-items: center;
     padding-top: 5vh;
+    font-size: smaller;
   }
 }

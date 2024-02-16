@@ -238,6 +238,14 @@ header {
 
   .menu-fixed-container {
     padding: 0;
+    animation-range-start: 100%;
+    animation-range-end: 100%;
+
+    &::before {
+      animation-range-start: 300vh;
+      animation-range-end: 302vh;
+    }
+
     .menu-fixed {
       display: none;
     }
