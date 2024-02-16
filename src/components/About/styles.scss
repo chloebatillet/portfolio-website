@@ -27,20 +27,18 @@
   .titles {
     width: 70%;
     text-align: center;
-  }
 
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    word-break: normal;
-    //width: 70%;
-    //min-width: 300px;
-    font-family: "Red Hat Display", sans-serif;
-  }
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      word-break: normal;
+      font-family: "Red Hat Display", sans-serif;
+    }
 
-  h2 {
-    font-weight: lighter;
-    font-family: 'Courier New', Courier, monospace;
+    h2 {
+      font-weight: lighter;
+      font-family: "Courier New", Courier, monospace;
+    }
   }
 }
 
@@ -49,36 +47,12 @@
   height: 100vh;
   display: flex;
 
-  // align-items: center;
-  // justify-content: center;
-
   &:first-of-type {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    // &:before {
-    //   content: "";
-    //   width: 500px;
-    //   height: 500px;
-    //   position: absolute;
-    //   top: 15%;
-    //   left: 15%;
-    //   animation: gradient-grow;
-    //   animation-fill-mode: both;
-    //   animation-timeline: view();
-    //   animation-range-start: 50vh;
-    //   //border-radius: 50%;
-    //   background: radial-gradient(
-    //     rgba(251, 63, 215, 1),
-    //     rgb(255, 79, 138),
-    //     rgba(252, 121, 70, 1),
-    //     transparent 60%
-    //   );
-    //   z-index: -1;
-    // }
 
     @keyframes gradient-grow {
       0% {
@@ -98,32 +72,6 @@
       }
     }
   }
-
-  .round-shape {
-    width: 80px;
-    height: 80px;
-    background-color: green;
-    position: relative;
-    animation: gradient-grow;
-    animation-fill-mode: both;
-    animation-timeline: view();
-    animation-range-start: 50vh;
-
-    &::before {
-      content: "";
-      width: 50px;
-      height: 50px;
-      background-color: red;
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      animation: moving 1s infinite alternate-reverse;
-    }
-
-    &:hover {
-    }
-  }
-
 
   .scroll-indicator {
     transition: all 0.3s;
@@ -157,15 +105,6 @@
     }
   }
 
-  @keyframes moving {
-    from {
-      transform: translateX(-10px);
-    }
-    to {
-      transform: translateX(10px);
-    }
-  }
-
   @keyframes disappear {
     0% {
       filter: opacity(0%);
@@ -185,5 +124,19 @@ body.--dark {
 
   .scroll-indicator {
     border-color: v.$white;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .section-element .scroll-indicator {
+    display: none;
+  }
+
+  .about-container .titles {
+    font-size: smaller;
+
+    h1 {
+      font-size: 2rem;
+    }
   }
 }

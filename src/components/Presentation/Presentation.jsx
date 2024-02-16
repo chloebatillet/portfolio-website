@@ -1,6 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import './styles.scss'
+import Chip from "../Chip/Chip";
+
+import "./styles.scss";
+import data from "../../assets/data.json";
 
 function Presentation() {
   return (
@@ -19,13 +22,21 @@ function Presentation() {
       </article>
       <aside className="techno">
         <p>J'ai déjà travaillé avec ces technos :</p>
+        <div className="tags">
+          {data.about.techno.map((e) => {
+            return <Chip text={e} />;
+          })}
+        </div>
         <br />
-        <p>
-          Et j'aimerais maitriser celles-ci : react native, tree.js, flutter
-        </p>
+        <p>Et ces outils :</p>
+        <div className="tags">
+          {data.about.tools.map((e) => {
+            return <Chip text={e} />;
+          })}
+        </div>
       </aside>
     </div>
   );
 }
 
-export default Presentation
+export default Presentation;

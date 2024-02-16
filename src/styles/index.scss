@@ -183,7 +183,18 @@ body.--dark {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
+  #container {
+  // height: auto;
+  // width: 100vw;
+  /* set width based on sections */
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
   #footer {
     height: auto;
     flex-direction: column;

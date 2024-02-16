@@ -64,5 +64,10 @@
       "company": "La Charrette Créole",
       "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum! Non, tempore reiciendis dignissimos molestiae praesentium quisquam, dolorem ea nulla impedit, repellat optio libero ipsum."
     }
-  ]
+  ],
+  "about": {
+    "presentation" : "Il y a 1 an, j'ai choisi le développement web. J'y ai trouvé ce que je cherchais : un moyen de satisfaire ma curiosité, beaucoup de créativité et surtout des heures à me creuser la tête ! Aujourd'hui, je recherche à approfondir mes connaissances avant d’intégrer une entreprise qui sera prête à m’accompagner dans cette nouvelle carrière ☺",
+    "techno": ["html", "css/scss", "javascript", "typescript", "react", "redux", "axios"],
+    "tools": ["git/github", "insomnia", "appsmith", "figma"]
+  }
 }

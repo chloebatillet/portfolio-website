@@ -11,4 +11,20 @@
 
     &:nth-child(n) {
     }
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 2vh;
+        font-family: 'Courier New', Courier, monospace;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .presentation-wrapper {
+        flex-direction: column;
+    }
 }

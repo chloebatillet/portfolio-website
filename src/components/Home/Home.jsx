@@ -16,52 +16,103 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   useGSAP(() => {
-    const horizontalSections = gsap.utils.toArray(".section-element");
+    let mm = gsap.matchMedia();
 
-    let tween = gsap.to(horizontalSections, {
-      xPercent: -100 * (horizontalSections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#container",
-        pin: true,
-        scrub: 2,
-        invalidateOnRefresh: true,
-        //* Interfère avec les liens du menu
-        snap: 1 / (horizontalSections.length - 1),
-        end: () => "+=" + document.querySelector("#container").offsetWidth,
-      },
+    mm.add("(min-width: 999px)", () => {
+      const horizontalSections = gsap.utils.toArray(".section-element");
+
+      let tween = gsap.to(horizontalSections, {
+        xPercent: -100 * (horizontalSections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#container",
+          pin: true,
+          scrub: 2,
+          invalidateOnRefresh: true,
+          //* Interfère avec les liens du menu
+          snap: 1 / (horizontalSections.length - 1),
+          end: () => "+=" + document.querySelector("#container").offsetWidth,
+        },
+      });
+
+      // Experiences ------------------------------------
+      gsap.to(".line", {
+        width: "100%",
+        stagger: 0.2,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".line",
+          start: "left 90%",
+          end: "right 40%",
+          scrub: 1,
+          // markers: true,
+          containerAnimation: tween,
+        },
+      });
+
+      // Projects ------------------------------------
+      let projects = gsap.utils.toArray(".project-box");
+
+      gsap.to(projects, {
+        y: -20,
+        stagger: 0.2,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".projects-container",
+          start: "left 90%",
+          end: "center 60%",
+          scrub: 2,
+          containerAnimation: tween,
+        },
+      });
     });
 
-    // Experiences ------------------------------------
-    gsap.to(".line", {
-      width: "100%",
-      stagger: 0.2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".line",
-        start: "left 90%",
-        end: "right 40%",
-        scrub: 1,
-        // markers: true,
-        containerAnimation: tween,
-      },
-    });
+    // const horizontalSections = gsap.utils.toArray(".section-element");
 
-    // Projects ------------------------------------
-    let projects = gsap.utils.toArray(".project-box");
+    // let tween = gsap.to(horizontalSections, {
+    //   xPercent: -100 * (horizontalSections.length - 1),
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: "#container",
+    //     pin: true,
+    //     scrub: 2,
+    //     invalidateOnRefresh: true,
+    //     //* Interfère avec les liens du menu
+    //     snap: 1 / (horizontalSections.length - 1),
+    //     end: () => "+=" + document.querySelector("#container").offsetWidth,
+    //   },
+    // });
 
-    gsap.to(projects, {
-      y: -20,
-      stagger: 0.2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".projects-container",
-        start: "left 90%",
-        end: "center 60%",
-        scrub: 2,
-        containerAnimation: tween,
-      },
-    });
+    // // Experiences ------------------------------------
+    // gsap.to(".line", {
+    //   width: "100%",
+    //   stagger: 0.2,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".line",
+    //     start: "left 90%",
+    //     end: "right 40%",
+    //     scrub: 1,
+    //     // markers: true,
+    //     containerAnimation: tween,
+    //   },
+    // });
+
+    // // Projects ------------------------------------
+    // let projects = gsap.utils.toArray(".project-box");
+
+    // gsap.to(projects, {
+    //   y: -20,
+    //   stagger: 0.2,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".projects-container",
+    //     start: "left 90%",
+    //     end: "center 60%",
+    //     scrub: 2,
+    //     containerAnimation: tween,
+    //   },
+    // });
 
     // Contacts ---------------------------------------
     // gsap.to(".illustration-svg", {
