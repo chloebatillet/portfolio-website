@@ -64,52 +64,34 @@ body {
 /* ----------------------
 ---------------------- */
 
-/* ----------------------
-  Horizontal scroll
----------------------- */
-
 #container {
-  // height: auto;
-  // width: 100vw;
-  /* set width based on sections */
   height: 100vh;
   width: 400vw;
   display: flex;
   flex-wrap: nowrap;
 }
 
-.bubble {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: rgb(9, 108, 139);
-  position: absolute;
-  transform: translate(50px, 50px);
-  mix-blend-mode: difference;
-  animation: moving 2s linear infinite;
-  animation-direction: alternate-reverse;
-}
-
-@keyframes moving {
-  0% {
-    transform: translate(-250px, 50px);
-  }
-  50% {
-    transform: translate(20px, 70px);
-  }
-  100% {
-    transform: translate(30px, 50px);
-  }
-}
-
 .section-element {
   height: 100vh;
   width: 100vw;
   background-color: v.$white-bg;
-}
 
-#projects {
-  width: 100vw;
+  .section-title {
+    display: none;
+
+    font-size: 2rem;
+    color: v.$black;
+    -webkit-text-stroke: 1px #181717;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex-direction: row;
+    align-items: baseline;
+
+    .index {
+      font-size: small;
+      margin-right: 8px;
+    }
+  }
 }
 
 #footer {
@@ -140,7 +122,6 @@ body {
 /* ------------------------------
   Page transitions 
 ------------------------------ */
-
 .slide-in {
   position: fixed;
   top: 0;
@@ -161,13 +142,17 @@ body {
   transform-origin: top;
 }
 
-
 body.--dark {
   color: v.$white;
   background-color: v.$black-bg;
 
   .section-element {
     background-color: v.$black-bg;
+
+    .section-title {
+      color: v.$white;
+      -webkit-text-stroke-color: v.$white;
+    }
   }
 
   #footer {
@@ -189,15 +174,28 @@ body.--dark {
 
 @media only screen and (max-width: 1000px) {
   #container {
-  // height: auto;
-  // width: 100vw;
-  /* set width based on sections */
-  height: auto;
-  width: 100vw;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-}
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .section-element {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:first-of-type) {
+      height: auto;
+      margin-bottom: 12vh;
+    }
+
+    .section-title {
+      display: flex;
+      margin-bottom: 4vh;
+    }
+  }
 
   #footer {
     height: auto;

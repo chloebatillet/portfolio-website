@@ -9,7 +9,7 @@ function Presentation() {
   return (
     <div className="presentation-wrapper">
       <article className="text">
-        <h2>Qui suis-je ?</h2>
+        <h2 className="section-title">Qui suis-je ?</h2>
         <p>
           Il y a 1 an, j'ai choisi le développement web. J'y ai trouvé ce que je
           cherchais : un moyen de satisfaire ma curiosité, beaucoup de
@@ -19,6 +19,7 @@ function Presentation() {
           d’intégrer une entreprise qui sera prête à m’accompagner dans cette
           nouvelle carrière ☺
         </p>
+        <br />
       </article>
       <aside className="techno">
         <p>J'ai déjà travaillé avec ces technos :</p>

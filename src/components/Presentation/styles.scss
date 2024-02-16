@@ -9,6 +9,10 @@
     gap: 10%;
     margin: auto;
 
+    h2.section-title {
+        display: flex;
+    }
+
     &:nth-child(n) {
     }
 
@@ -26,5 +30,9 @@
 @media only screen and (max-width: 1000px) {
     .presentation-wrapper {
         flex-direction: column;
+
+        h2.section-title {
+        display: none;
+    }
     }
 }

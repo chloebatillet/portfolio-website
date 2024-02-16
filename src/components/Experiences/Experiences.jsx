@@ -6,40 +6,30 @@ import "./styles.scss";
 
 import data from "../../assets/data.json";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Experiences() {
   const [paragrapheBubble, setParagraphBubble] = useState("");
   const container = useRef();
 
-  useGSAP(() => {
-    gsap.to(".line", {
-      width: "100%",
-      stagger: 0.2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".line",
-        start: "left 90%",
-        end: "right 40%",
-        scrub: 1,
-        // markers: true,
-        // containerAnimation: tween,
-      },
-    });
-  })
+  const isMobileOrTablet =
+    /Android|webOS|iPhone|iPad|iPod|Macintosh|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
   const positionBubble = () => {
     const bubble = document.querySelector(".--open");
 
     if (bubble) {
-      window.addEventListener("mousemove", (e) => {
-        bubble.style.top = `calc(${e.clientY}px - 150px)`;
-        bubble.style.left = `calc(${e.clientX}px + 30px)`;
-      });
+      isMobileOrTablet
+        ? window.addEventListener("mousemove", (e) => {
+            bubble.style.top = `calc(${e.clientY}px + 20px)`;
+            //bubble.style.left = `calc(${e.clientX}px - 150px)`;
+            //bubble.style.background = 'red';
+          })
+        : window.addEventListener("mousemove", (e) => {
+            bubble.style.top = `calc(${e.clientY}px - 150px)`;
+            bubble.style.left = `calc(${e.clientX}px + 30px)`;
+          });
     }
   };
 

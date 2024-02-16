@@ -21,8 +21,6 @@
   writing-mode: vertical-lr;
   display: flex;
   flex-direction: row;
-  // transform: scale(1);
-  // transition: all 1s;
 
   .link {
     width: 100%;
@@ -62,8 +60,8 @@
   .article-name {
     position: relative;
     overflow: hidden;
-    -webkit-text-stroke: 1px v.$white;
-    color: v.$black; // pour le mobile 
+    -webkit-text-stroke: 1px v.$white; // bug sur mobile
+    color: v.$black;
 
 
     &::before {
@@ -127,6 +125,7 @@
     }
 
     .article-name {
+
       &::before {
         height: 0;
         width: auto;

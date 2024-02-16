@@ -18,7 +18,7 @@ function Home() {
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 999px)", () => {
+    mm.add("(min-width: 1000px)", () => {
       const horizontalSections = gsap.utils.toArray(".section-element");
 
       let tween = gsap.to(horizontalSections, {
@@ -59,29 +59,81 @@ function Home() {
         ease: "none",
         scrollTrigger: {
           trigger: ".projects-container",
-          start: "left 90%",
+          start: "center 100%",
           end: "center 60%",
           scrub: 2,
           containerAnimation: tween,
         },
       });
+
+      // ::before menu-fixed-container wave disappear
+      const bk = document.querySelector("#container").offsetWidth;
+      console.log(bk);
+
+      gsap.to(".menu-fixed-container", {
+        "--menu-opacity": 0,
+        zIndex: -1,
+        scrollTrigger: {
+          trigger: ".contact-section-wrapper",
+          start: "top 100%",
+          end: "top 100%",
+          markers: true,
+          scrub: true,
+        },
+      });
+
+      gsap.to(".menu-fixed", {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".contact-section-wrapper",
+          start: "top 100%",
+          end: "top 100%",
+          markers: true,
+          scrub: 1,
+        },
+      });
     });
 
-    // const horizontalSections = gsap.utils.toArray(".section-element");
+    mm.add("(max-width: 999px)", () => {
+      // Projects ------------------------------------
+      let projectsEl = gsap.utils.toArray(".project-box");
 
-    // let tween = gsap.to(horizontalSections, {
-    //   xPercent: -100 * (horizontalSections.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: "#container",
-    //     pin: true,
-    //     scrub: 2,
-    //     invalidateOnRefresh: true,
-    //     //* Interfère avec les liens du menu
-    //     snap: 1 / (horizontalSections.length - 1),
-    //     end: () => "+=" + document.querySelector("#container").offsetWidth,
-    //   },
-    // });
+      gsap.to(projectsEl, {
+        x: 0,
+        stagger: 0.2,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".projects-container",
+          start: "center 90%",
+          end: "center 60%",
+          scrub: 2,
+        },
+      });
+
+      // Experiences ------------------------------------
+      gsap.to(".line", {
+        width: "100%",
+        stagger: 0.2,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".line",
+          start: "left 90%",
+          end: "right 40%",
+          scrub: 1,
+        },
+      });
+
+      // ::before menu-fixed-container wave disappear
+      gsap.to(".menu-fixed-container", {
+        "--menu-opacity": 0,
+        scrollTrigger: {
+          trigger: "#footer",
+          start: "top 100%",
+          end: "top 90%",
+          scrub: true,
+        },
+      });
+    });
 
     // // Experiences ------------------------------------
     // gsap.to(".line", {
@@ -140,48 +192,30 @@ function Home() {
     //   translateY: -200,
     //   scale: 1,
     // });
-
-    // let width = document.querySelector("#projects").offsetWidth;
-
-    // ScrollTrigger.create({
-    //   trigger: "#projects",
-    //   start: "top top",
-    //   //endTrigger: "bottom bottom",
-    //   end: `bottom 50%-=${width}`,
-    //   onToggle: (self) => console.log("toggled, isActive:", self.isActive),
-    //   onUpdate: (self) => {
-    //     console.log(
-    //       "progress:",
-    //       self.progress.toFixed(3),
-    //       "direction:",
-    //       self.direction,
-    //       "velocity",
-    //       self.getVelocity()
-    //     );
-    //   },
-    // });
   });
 
   return (
     <>
       <main id="container">
         <div name="about" className="section-element" id="about">
-          {/* <div className="bubble"></div> */}
           <About />
         </div>
-        <div name="about" className="section-element" id="about">
-          {/* <div className="bubble"></div> */}
+        <div name="about" className="section-element" id="presentation">
+          <h2 className="section-title">
+            <span className="index">00.</span>Qui suis-je ?
+          </h2>
           <Presentation />
         </div>
         <div name="projects" className="section-element" id="projects">
-          {/* <h1>Projects</h1> */}
+          <h2 className="section-title">
+            <span className="index">01.</span>Projets
+          </h2>
           <Projetcs />
         </div>
         <div
           name="experiences"
           className="section-element"
           style={{
-            // background: "blue",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -189,6 +223,9 @@ function Home() {
           }}
           id="experiences"
         >
+          <h2 className="section-title">
+            <span className="index">02.</span>Expériences
+          </h2>
           <Experiences />
         </div>
       </main>
