@@ -13,7 +13,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/all";
 
-
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function Home() {
@@ -39,12 +38,11 @@ function Home() {
       });
 
       // Horizontal navigation ------------------------------------
-      let sections = gsap.utils.toArray(".section-element");
       let maxWidth = 0;
 
       const getMaxWidth = () => {
         maxWidth = 0;
-        sections.forEach((section) => {
+        horizontalSections.forEach((section) => {
           maxWidth += section.offsetWidth;
         });
       };
@@ -99,6 +97,33 @@ function Home() {
         };
       }
 
+      // Highlights menu ------------------------------------
+      let activableSections = horizontalSections;
+      activableSections.shift();
+
+      console.log(activableSections);
+
+      activableSections.forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "left 70%",
+          end: "right 70%",
+          containerAnimation: tween,
+          onToggle: (self) => {
+            const el = document.querySelectorAll(`a.word.${section.id}`);
+            if (self.isActive) {
+              el.forEach((e) => {
+                e.classList.add("is-active");
+              });
+            } else {
+              el.forEach((e) => {
+                e.classList.remove("is-active");
+              });
+            }
+          },
+        });
+      });
+
       // Experiences ------------------------------------
       gsap.to(".line", {
         width: "100%",
@@ -131,9 +156,6 @@ function Home() {
       });
 
       // ::before menu-fixed-container wave disappear
-      const bk = document.querySelector("#container").offsetWidth;
-      console.log(bk);
-
       gsap.to(".menu-fixed-container", {
         "--menu-opacity": 0,
         zIndex: -1,
@@ -198,16 +220,15 @@ function Home() {
         },
       });
     });
-
   });
 
   return (
     <>
       <main id="container">
-        <div name="about" className="section-element" id="about">
+        <div name="about" className="section-element" id="intro">
           <About />
         </div>
-        <div name="about" className="section-element" id="presentation">
+        <div name="about" className="section-element" id="about">
           <h2 className="section-title">
             <span className="index">00.</span>Qui suis-je ?
           </h2>
@@ -260,63 +281,60 @@ function Home() {
 
 export default Home;
 
+// // Experiences ------------------------------------
+// gsap.to(".line", {
+//   width: "100%",
+//   stagger: 0.2,
+//   ease: "none",
+//   scrollTrigger: {
+//     trigger: ".line",
+//     start: "left 90%",
+//     end: "right 40%",
+//     scrub: 1,
+//     // markers: true,
+//     containerAnimation: tween,
+//   },
+// });
 
+// // Projects ------------------------------------
+// let projects = gsap.utils.toArray(".project-box");
 
+// gsap.to(projects, {
+//   y: -20,
+//   stagger: 0.2,
+//   ease: "none",
+//   scrollTrigger: {
+//     trigger: ".projects-container",
+//     start: "left 90%",
+//     end: "center 60%",
+//     scrub: 2,
+//     containerAnimation: tween,
+//   },
+// });
 
-    // // Experiences ------------------------------------
-    // gsap.to(".line", {
-    //   width: "100%",
-    //   stagger: 0.2,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".line",
-    //     start: "left 90%",
-    //     end: "right 40%",
-    //     scrub: 1,
-    //     // markers: true,
-    //     containerAnimation: tween,
-    //   },
-    // });
+// Contacts ---------------------------------------
+// gsap.to(".illustration-svg", {
+//   rotate: 360,
+//   scale: 1,
+//   scrollTrigger: {
+//     trigger: ".illustration-svg",
+//     start: "left 10%",
+//     end: "right 60%",
+//     scrub: 1,
+//     containerAnimation: '#footer',
+//     markers: true,
+//   }
+// });
 
-    // // Projects ------------------------------------
-    // let projects = gsap.utils.toArray(".project-box");
-
-    // gsap.to(projects, {
-    //   y: -20,
-    //   stagger: 0.2,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".projects-container",
-    //     start: "left 90%",
-    //     end: "center 60%",
-    //     scrub: 2,
-    //     containerAnimation: tween,
-    //   },
-    // });
-
-    // Contacts ---------------------------------------
-    // gsap.to(".illustration-svg", {
-    //   rotate: 360,
-    //   scale: 1,
-    //   scrollTrigger: {
-    //     trigger: ".illustration-svg",
-    //     start: "left 10%",
-    //     end: "right 60%",
-    //     scrub: 1,
-    //     containerAnimation: '#footer',
-    //     markers: true,
-    //   }
-    // });
-
-    // gsap.to(".hand", {
-    //   scrollTrigger: {
-    //     trigger: ".illustration-svg",
-    //     start: "top 65%",
-    //     end: "top 50%",
-    //     scrub: 1,
-    //     containerAnimation: tween,
-    //     //markers: true,
-    //   },
-    //   translateY: -200,
-    //   scale: 1,
-    // });
+// gsap.to(".hand", {
+//   scrollTrigger: {
+//     trigger: ".illustration-svg",
+//     start: "top 65%",
+//     end: "top 50%",
+//     scrub: 1,
+//     containerAnimation: tween,
+//     //markers: true,
+//   },
+//   translateY: -200,
+//   scale: 1,
+// });

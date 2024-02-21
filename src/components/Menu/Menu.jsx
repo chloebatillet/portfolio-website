@@ -1,13 +1,7 @@
 import "./styles.scss";
-import { useEffect, useState } from "react";
 
 function Menu({ setMenuIsOpen }) {
   const nav = ["about", "projects", "experiences", "contacts"];
-
-
-  const [screenWidth, setScreenWidth] = useState(0);
-
-
 
   return (
     // Voir pour ajouter balise nav
@@ -19,13 +13,9 @@ function Menu({ setMenuIsOpen }) {
           <a
             href={`#${e}`}
             key={e}
-            className="word"
+            className={`word ${e}`}
             onClick={() => {
               setMenuIsOpen(false);
-              // window.scrollTo({
-              //   top: (screenWidth / 3) * index,
-              //   behavior: "smooth",
-              // });
             }}
           >
             <span className="index">0{index}.</span>
@@ -47,19 +37,3 @@ function Menu({ setMenuIsOpen }) {
 
 export default Menu;
 
-
-  // useEffect(() => {
-  //   setScreenWidth(document.querySelector("#container").offsetHeight * 1);
-  //   console.log("first use effect: " + screenWidth);
-  // }, []);
-
-  // console.log(screenWidth);
-  // console.log(window.innerWidth * 4);
-  // console.log(document.querySelector("#container"));
-
-  // function reportWindowSize() {
-  //   console.log("h: " + window.innerHeight, "w: " + window.innerWidth);
-  //   setScreenWidth(document.querySelector("#container").offsetHeight);
-  // }
-
-  // window.onresize = reportWindowSize;
