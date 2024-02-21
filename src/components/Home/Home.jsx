@@ -11,8 +11,10 @@ import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function Home() {
   useGSAP(() => {
@@ -30,10 +32,72 @@ function Home() {
           scrub: 2,
           invalidateOnRefresh: true,
           //* Interfère avec les liens du menu
-          snap: 1 / (horizontalSections.length - 1),
+          //! Interfère avec la navigation horizontale
+          //snap: 1 / (horizontalSections.length - 1),
           end: () => "+=" + document.querySelector("#container").offsetWidth,
         },
       });
+
+      // Horizontal navigation ------------------------------------
+      let sections = gsap.utils.toArray(".section-element");
+      let maxWidth = 0;
+
+      const getMaxWidth = () => {
+        maxWidth = 0;
+        sections.forEach((section) => {
+          maxWidth += section.offsetWidth;
+        });
+      };
+      getMaxWidth();
+      ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
+
+      let getPosition = getScrollLookup(".section-element", {
+        start: "top top",
+        containerAnimation: tween,
+      });
+
+      let menuLinks = gsap.utils.toArray("a.word");
+      menuLinks.pop(); // remove <Contact /> which is not in tween
+
+      menuLinks.forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          gsap.to(window, {
+            scrollTo: getPosition(el.getAttribute("href")),
+            overwrite: "auto",
+            duration: 0.3,
+          });
+        });
+      });
+
+      function getScrollLookup(
+        targets,
+        { start, pinnedContainer, containerAnimation }
+      ) {
+        let triggers = gsap.utils.toArray(targets).map((el) =>
+            ScrollTrigger.create({
+              trigger: el,
+              start: start || "top top",
+              pinnedContainer: pinnedContainer,
+              refreshPriority: -10,
+              containerAnimation: containerAnimation,
+            })
+          ),
+          st = containerAnimation && containerAnimation.scrollTrigger;
+        return (target) => {
+          let t = gsap.utils.toArray(target)[0],
+            i = triggers.length;
+          while (i-- && triggers[i].trigger !== t) {}
+          if (i < 0) {
+            return console.warn("target not found", target);
+          }
+          return containerAnimation
+            ? st.start +
+                (triggers[i].start / containerAnimation.duration()) *
+                  (st.end - st.start)
+            : triggers[i].start;
+        };
+      }
 
       // Experiences ------------------------------------
       gsap.to(".line", {
@@ -42,8 +106,8 @@ function Home() {
         ease: "none",
         scrollTrigger: {
           trigger: ".line",
-          start: "left 90%",
-          end: "right 40%",
+          start: "center 100%",
+          end: "center 60%",
           scrub: 1,
           // markers: true,
           containerAnimation: tween,
@@ -88,7 +152,7 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          markers: true,
+          //markers: true,
           scrub: 1,
         },
       });
@@ -127,13 +191,77 @@ function Home() {
       gsap.to(".menu-fixed-container", {
         "--menu-opacity": 0,
         scrollTrigger: {
-          trigger: "#footer",
+          trigger: "#contacts",
           start: "top 100%",
           end: "top 90%",
           scrub: true,
         },
       });
     });
+
+  });
+
+  return (
+    <>
+      <main id="container">
+        <div name="about" className="section-element" id="about">
+          <About />
+        </div>
+        <div name="about" className="section-element" id="presentation">
+          <h2 className="section-title">
+            <span className="index">00.</span>Qui suis-je ?
+          </h2>
+          <Presentation />
+        </div>
+        <div name="projects" className="section-element" id="projects">
+          <h2 className="section-title">
+            <span className="index">01.</span>Projets
+          </h2>
+          <Projetcs />
+        </div>
+        <div
+          name="experiences"
+          className="section-element"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          id="experiences"
+        >
+          <h2 className="section-title">
+            <span className="index">02.</span>Expériences
+          </h2>
+          <Experiences />
+        </div>
+      </main>
+      <footer className="global-footer" id="contacts">
+        <Contact />
+      </footer>
+
+      <motion.div
+        className="slide-in"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 0 }}
+        exit={{ scaleY: 1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <motion.div
+        className="slide-out"
+        initial={{ scaleY: 1 }}
+        animate={{ scaleY: 0 }}
+        exit={{ scaleY: 0 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </>
+  );
+}
+
+export default Home;
+
+
+
 
     // // Experiences ------------------------------------
     // gsap.to(".line", {
@@ -192,63 +320,3 @@ function Home() {
     //   translateY: -200,
     //   scale: 1,
     // });
-  });
-
-  return (
-    <>
-      <main id="container">
-        <div name="about" className="section-element" id="about">
-          <About />
-        </div>
-        <div name="about" className="section-element" id="presentation">
-          <h2 className="section-title">
-            <span className="index">00.</span>Qui suis-je ?
-          </h2>
-          <Presentation />
-        </div>
-        <div name="projects" className="section-element" id="projects">
-          <h2 className="section-title">
-            <span className="index">01.</span>Projets
-          </h2>
-          <Projetcs />
-        </div>
-        <div
-          name="experiences"
-          className="section-element"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          id="experiences"
-        >
-          <h2 className="section-title">
-            <span className="index">02.</span>Expériences
-          </h2>
-          <Experiences />
-        </div>
-      </main>
-      <div className="" id="footer">
-        <Contact />
-      </div>
-
-      <motion.div
-        className="slide-in"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.div
-        className="slide-out"
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
-    </>
-  );
-}
-
-export default Home;

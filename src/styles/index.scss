@@ -94,7 +94,7 @@ body {
   }
 }
 
-#footer {
+footer.global-footer {
   background-color: v.$white;
   width: 100vw;
   height: 80vh;
@@ -155,7 +155,7 @@ body.--dark {
     }
   }
 
-  #footer {
+  footer.global-footer {
     background-color: v.$black;
 
     &::before {
@@ -188,7 +188,7 @@ body.--dark {
 
     &:not(:first-of-type) {
       height: auto;
-      margin-bottom: 12vh;
+      padding-bottom: 24vh;
     }
 
     .section-title {
@@ -197,7 +197,7 @@ body.--dark {
     }
   }
 
-  #footer {
+  footer.global-footer {
     height: auto;
     flex-direction: column;
     gap: 5vh;

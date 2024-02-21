@@ -7,6 +7,47 @@ function Menu({ setMenuIsOpen }) {
 
   const [screenWidth, setScreenWidth] = useState(0);
 
+
+
+  return (
+    // Voir pour ajouter balise nav
+    <>
+      {/* <div className="menu-container"> */}
+      {/* Word ------------------------*/}
+      {nav.map((e, index) => {
+        return (
+          <a
+            href={`#${e}`}
+            key={e}
+            className="word"
+            onClick={() => {
+              setMenuIsOpen(false);
+              // window.scrollTo({
+              //   top: (screenWidth / 3) * index,
+              //   behavior: "smooth",
+              // });
+            }}
+          >
+            <span className="index">0{index}.</span>
+            {/* Each letter of the word -----------------*/}
+            {e.split("").map((l, index) => {
+              return (
+                <span key={e.concat(index)} className="letter">
+                  {l}
+                </span>
+              );
+            })}
+          </a>
+        );
+      })}
+      {/* </div> */}
+    </>
+  );
+}
+
+export default Menu;
+
+
   // useEffect(() => {
   //   setScreenWidth(document.querySelector("#container").offsetHeight * 1);
   //   console.log("first use effect: " + screenWidth);
@@ -22,41 +63,3 @@ function Menu({ setMenuIsOpen }) {
   // }
 
   // window.onresize = reportWindowSize;
-
-  return (
-    // Voir pour ajouter balise nav
-    <>
-      {/* <div className="menu-container"> */}
-      {/* Word ------------------------*/}
-      {nav.map((e, index) => {
-        return (
-          <div
-            // href={`#${e}`}
-            key={e}
-            className="word"
-            onClick={() => {
-              setMenuIsOpen(false);
-              window.scrollTo({
-                top: (screenWidth / 3) * index,
-                behavior: "smooth",
-              });
-            }}
-          >
-            <span className="index">0{index}.</span>
-            {/* Each letter of the word -----------------*/}
-            {e.split("").map((l, index) => {
-              return (
-                <span key={e.concat(index)} className="letter">
-                  {l}
-                </span>
-              );
-            })}
-          </div>
-        );
-      })}
-      {/* </div> */}
-    </>
-  );
-}
-
-export default Menu;
