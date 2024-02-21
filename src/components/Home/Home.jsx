@@ -11,8 +11,9 @@ import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function Home() {
   useGSAP(() => {
@@ -30,9 +31,97 @@ function Home() {
           scrub: 2,
           invalidateOnRefresh: true,
           //* Interfère avec les liens du menu
-          snap: 1 / (horizontalSections.length - 1),
+          //! Interfère avec la navigation horizontale
+          //snap: 1 / (horizontalSections.length - 1),
           end: () => "+=" + document.querySelector("#container").offsetWidth,
         },
+      });
+
+      // Horizontal navigation ------------------------------------
+      let maxWidth = 0;
+
+      const getMaxWidth = () => {
+        maxWidth = 0;
+        horizontalSections.forEach((section) => {
+          maxWidth += section.offsetWidth;
+        });
+      };
+      getMaxWidth();
+      ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
+
+      let getPosition = getScrollLookup(".section-element", {
+        start: "top top",
+        containerAnimation: tween,
+      });
+
+      let menuLinks = gsap.utils.toArray("a.word");
+      menuLinks.pop(); // remove <Contact /> which is not in tween
+
+      menuLinks.forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          gsap.to(window, {
+            scrollTo: getPosition(el.getAttribute("href")),
+            overwrite: "auto",
+            duration: 0.3,
+          });
+        });
+      });
+
+      function getScrollLookup(
+        targets,
+        { start, pinnedContainer, containerAnimation }
+      ) {
+        let triggers = gsap.utils.toArray(targets).map((el) =>
+            ScrollTrigger.create({
+              trigger: el,
+              start: start || "top top",
+              pinnedContainer: pinnedContainer,
+              refreshPriority: -10,
+              containerAnimation: containerAnimation,
+            })
+          ),
+          st = containerAnimation && containerAnimation.scrollTrigger;
+        return (target) => {
+          let t = gsap.utils.toArray(target)[0],
+            i = triggers.length;
+          while (i-- && triggers[i].trigger !== t) {}
+          if (i < 0) {
+            return console.warn("target not found", target);
+          }
+          return containerAnimation
+            ? st.start +
+                (triggers[i].start / containerAnimation.duration()) *
+                  (st.end - st.start)
+            : triggers[i].start;
+        };
+      }
+
+      // Highlights menu ------------------------------------
+      let activableSections = horizontalSections;
+      activableSections.shift();
+
+      console.log(activableSections);
+
+      activableSections.forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "left 70%",
+          end: "right 70%",
+          containerAnimation: tween,
+          onToggle: (self) => {
+            const el = document.querySelectorAll(`a.word.${section.id}`);
+            if (self.isActive) {
+              el.forEach((e) => {
+                e.classList.add("is-active");
+              });
+            } else {
+              el.forEach((e) => {
+                e.classList.remove("is-active");
+              });
+            }
+          },
+        });
       });
 
       // Experiences ------------------------------------
@@ -42,8 +131,8 @@ function Home() {
         ease: "none",
         scrollTrigger: {
           trigger: ".line",
-          start: "left 90%",
-          end: "right 40%",
+          start: "center 100%",
+          end: "center 60%",
           scrub: 1,
           // markers: true,
           containerAnimation: tween,
@@ -67,9 +156,6 @@ function Home() {
       });
 
       // ::before menu-fixed-container wave disappear
-      const bk = document.querySelector("#container").offsetWidth;
-      console.log(bk);
-
       gsap.to(".menu-fixed-container", {
         "--menu-opacity": 0,
         zIndex: -1,
@@ -88,7 +174,7 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          markers: true,
+          //markers: true,
           scrub: 1,
         },
       });
@@ -127,80 +213,22 @@ function Home() {
       gsap.to(".menu-fixed-container", {
         "--menu-opacity": 0,
         scrollTrigger: {
-          trigger: "#footer",
+          trigger: "#contacts",
           start: "top 100%",
           end: "top 90%",
           scrub: true,
         },
       });
     });
-
-    // // Experiences ------------------------------------
-    // gsap.to(".line", {
-    //   width: "100%",
-    //   stagger: 0.2,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".line",
-    //     start: "left 90%",
-    //     end: "right 40%",
-    //     scrub: 1,
-    //     // markers: true,
-    //     containerAnimation: tween,
-    //   },
-    // });
-
-    // // Projects ------------------------------------
-    // let projects = gsap.utils.toArray(".project-box");
-
-    // gsap.to(projects, {
-    //   y: -20,
-    //   stagger: 0.2,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".projects-container",
-    //     start: "left 90%",
-    //     end: "center 60%",
-    //     scrub: 2,
-    //     containerAnimation: tween,
-    //   },
-    // });
-
-    // Contacts ---------------------------------------
-    // gsap.to(".illustration-svg", {
-    //   rotate: 360,
-    //   scale: 1,
-    //   scrollTrigger: {
-    //     trigger: ".illustration-svg",
-    //     start: "left 10%",
-    //     end: "right 60%",
-    //     scrub: 1,
-    //     containerAnimation: '#footer',
-    //     markers: true,
-    //   }
-    // });
-
-    // gsap.to(".hand", {
-    //   scrollTrigger: {
-    //     trigger: ".illustration-svg",
-    //     start: "top 65%",
-    //     end: "top 50%",
-    //     scrub: 1,
-    //     containerAnimation: tween,
-    //     //markers: true,
-    //   },
-    //   translateY: -200,
-    //   scale: 1,
-    // });
   });
 
   return (
     <>
       <main id="container">
-        <div name="about" className="section-element" id="about">
+        <div name="about" className="section-element" id="intro">
           <About />
         </div>
-        <div name="about" className="section-element" id="presentation">
+        <div name="about" className="section-element" id="about">
           <h2 className="section-title">
             <span className="index">00.</span>Qui suis-je ?
           </h2>
@@ -229,9 +257,9 @@ function Home() {
           <Experiences />
         </div>
       </main>
-      <div className="" id="footer">
+      <footer className="global-footer" id="contacts">
         <Contact />
-      </div>
+      </footer>
 
       <motion.div
         className="slide-in"
@@ -252,3 +280,61 @@ function Home() {
 }
 
 export default Home;
+
+// // Experiences ------------------------------------
+// gsap.to(".line", {
+//   width: "100%",
+//   stagger: 0.2,
+//   ease: "none",
+//   scrollTrigger: {
+//     trigger: ".line",
+//     start: "left 90%",
+//     end: "right 40%",
+//     scrub: 1,
+//     // markers: true,
+//     containerAnimation: tween,
+//   },
+// });
+
+// // Projects ------------------------------------
+// let projects = gsap.utils.toArray(".project-box");
+
+// gsap.to(projects, {
+//   y: -20,
+//   stagger: 0.2,
+//   ease: "none",
+//   scrollTrigger: {
+//     trigger: ".projects-container",
+//     start: "left 90%",
+//     end: "center 60%",
+//     scrub: 2,
+//     containerAnimation: tween,
+//   },
+// });
+
+// Contacts ---------------------------------------
+// gsap.to(".illustration-svg", {
+//   rotate: 360,
+//   scale: 1,
+//   scrollTrigger: {
+//     trigger: ".illustration-svg",
+//     start: "left 10%",
+//     end: "right 60%",
+//     scrub: 1,
+//     containerAnimation: '#footer',
+//     markers: true,
+//   }
+// });
+
+// gsap.to(".hand", {
+//   scrollTrigger: {
+//     trigger: ".illustration-svg",
+//     start: "top 65%",
+//     end: "top 50%",
+//     scrub: 1,
+//     containerAnimation: tween,
+//     //markers: true,
+//   },
+//   translateY: -200,
+//   scale: 1,
+// });
