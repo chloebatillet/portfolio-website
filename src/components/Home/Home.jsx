@@ -163,7 +163,7 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          markers: true,
+          // markers: true,
           scrub: true,
         },
       });

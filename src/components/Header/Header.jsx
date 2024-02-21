@@ -41,21 +41,23 @@ function Header({ isDark, setIsDark }) {
 
           {/* Icon switch mode */}
           <div style={{ display: "flex", gap: "24px" }}>
-            {isDark ? (
-              <LuSunDim
-                fontSize={"1.5rem"}
-                onClick={() => {
-                  setIsDark(!isDark);
-                }}
-              />
-            ) : (
-              <LuMoon
-                fontSize={"1.5rem"}
-                onClick={() => {
-                  setIsDark(!isDark);
-                }}
-              />
-            )}
+            <div className="switch-mode-btn">
+              {isDark ? (
+                <LuSunDim
+                  fontSize={"1.5rem"}
+                  onClick={() => {
+                    setIsDark(!isDark);
+                  }}
+                />
+              ) : (
+                <LuMoon
+                  fontSize={"1.5rem"}
+                  onClick={() => {
+                    setIsDark(!isDark);
+                  }}
+                />
+              )}
+            </div>
 
             {/* Icon burger visible sous 900px */}
 
