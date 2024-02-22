@@ -101,8 +101,6 @@ function Home() {
       let activableSections = horizontalSections;
       activableSections.shift();
 
-      console.log(activableSections);
-
       activableSections.forEach((section) => {
         ScrollTrigger.create({
           trigger: section,
