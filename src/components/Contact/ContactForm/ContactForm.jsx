@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import FormField from "./FormField/FormField";
 import emailjs from "@emailjs/browser";
 
+import { LuSendHorizonal } from "react-icons/lu";
+import { FaCheck } from "react-icons/fa6";
+
 function ContactForm() {
   const form = useRef();
+  const submitBtn = useRef();
+  const [btnValue, setBtnValue] = useState("Envoyer");
+  const [btnIsActive, setBtnIsActive] = useState(false);
+  const [icon, setIcon] = useState(<LuSendHorizonal />);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -14,7 +21,11 @@ function ContactForm() {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          submitBtn.current.style.width = "200px";
+          submitBtn.current.setAttribute("disabled", true);
+          setBtnIsActive(false);
+          setBtnValue("C'est dans ma boîte !");
+          setIcon(<FaCheck />);
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -39,7 +50,25 @@ function ContactForm() {
         required
       />
 
-      <input type="submit" value={"Envoyer"}></input>
+      <button
+        type="submit"
+        value={btnValue}
+        className={btnIsActive ? "is-active" : ""}
+        ref={submitBtn}
+        onClick={() => {
+          setBtnIsActive(true);
+          setTimeout(() => {
+            setBtnIsActive(false);
+            submitBtn.current.setAttribute("disabled", true);
+            submitBtn.current.style.width = "200px";
+            setBtnValue("C'est dans ma boîte !");
+            setIcon(<FaCheck />);
+          }, 3000);
+        }}
+      >
+        <span className="btn-icon">{icon}</span>
+        <span className="value">{btnValue}</span>
+      </button>
     </form>
   );
 }
