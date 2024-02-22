@@ -57,13 +57,6 @@ function ContactForm() {
         ref={submitBtn}
         onClick={() => {
           setBtnIsActive(true);
-          setTimeout(() => {
-            setBtnIsActive(false);
-            submitBtn.current.setAttribute("disabled", true);
-            submitBtn.current.style.width = "200px";
-            setBtnValue("C'est dans ma boîte !");
-            setIcon(<FaCheck />);
-          }, 3000);
         }}
       >
         <span className="btn-icon">{icon}</span>
