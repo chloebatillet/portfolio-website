@@ -10,6 +10,7 @@ import { GoHeart } from "react-icons/go";
 import { PiCoffee } from "react-icons/pi";
 
 import "./styles.scss";
+import ContactForm from "./ContactForm/ContactForm";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -74,26 +75,7 @@ function Contact() {
           </div>
         </div>
 
-        <form action="get" className="contact-form">
-          <h3>Ou communiquer par mail</h3>
-
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="elon.musk@laposte.net"
-          />
-
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            rows="8"
-            placeholder="Que voulez-vous me dire..."
-          ></textarea>
-          <input type="submit" value="Envoyer"></input>
-        </form>
+        <ContactForm />
       </div>
 
       <footer className="footer" style={{ textAlign: "center" }}>

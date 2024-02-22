@@ -101,8 +101,6 @@ function Home() {
       let activableSections = horizontalSections;
       activableSections.shift();
 
-      console.log(activableSections);
-
       activableSections.forEach((section) => {
         ScrollTrigger.create({
           trigger: section,
@@ -163,7 +161,7 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          markers: true,
+          // markers: true,
           scrub: true,
         },
       });
