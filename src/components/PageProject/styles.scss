@@ -35,10 +35,36 @@
           transition: background-color 0.2s;
         }
 
+        &::after {
+          content: "suivant";
+          font-size: x-small;
+          text-transform: uppercase;
+          width: auto;
+          height: auto;
+          position: absolute;
+          right: 28px;
+          bottom: 0;
+        }
+
+        &:first-of-type {
+          &::after {
+            content: "précédent";
+            left: 28px;
+          }
+        }
+
         &:hover::before {
           background-color: rgba(122, 122, 122, 0.253);
         }
       }
+    }
+
+    .project-gallery {
+      //background-color: red;
+      //height: 50vh;
+      width: 70%;
+      min-width: 350px;
+      overflow: auto;
     }
 
     .project-description {
@@ -52,9 +78,6 @@
         z-index: 0;
       }
 
-      img {
-        width: 50%;
-      }
 
       .project-description {
         flex-direction: column;
@@ -66,13 +89,13 @@
 
           &::before {
             content: "";
-            width: 100px;
+            width: 50px;
             height: 1px;
-            background-color: v.$white;
+            background-color: v.$black;
             position: absolute;
             top: 16px;
             right: -8px;
-            transform: translateX(100%) ;
+            transform: translateX(100%);
           }
         }
       }
@@ -102,8 +125,11 @@
 body.--dark {
   .project-wrapper {
     background-color: v.$black;
+
+    .project-container .project-description h2::before {
+      background-color: v.$white;
+    }
   }
-  
 }
 
 @media only screen and (max-width: 900px) {

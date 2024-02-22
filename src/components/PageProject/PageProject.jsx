@@ -10,8 +10,8 @@ import { CgWebsite } from "react-icons/cg";
 import { motion } from "framer-motion";
 
 import "./styles.scss";
+const folder = "/projectsImages/"
 
-import img from "../../assets/giphy.gif";
 import data from "../../assets/data.json";
 
 function PageProject() {
@@ -60,7 +60,9 @@ function PageProject() {
         </div>
 
         <article className="project-description">
-          <img src={img}></img>
+          <aside className="project-gallery">
+            <img src={folder + project.img}></img>
+          </aside>
           <div className="project-description">
             <header>
               <h2>{project.name}</h2>
