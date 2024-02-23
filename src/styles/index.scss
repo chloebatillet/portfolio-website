@@ -97,13 +97,14 @@ body {
 footer.global-footer {
   background-color: v.$white;
   width: 100vw;
-  height: 80vh;
+  // height: 80vh;
+  gap: 48px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 5vh;
+  padding-bottom: 48px;
 
   &::before {
     content: "";

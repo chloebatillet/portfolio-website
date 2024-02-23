@@ -52,21 +52,21 @@ header {
 
     .switch-mode-btn {
       position: relative;
-      
-      &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          position: absolute;
-          transform: scale(1.5);
-          transition: background-color 0.2s;
-          z-index: -1;
-        }
 
-        &:hover::before {
-          background-color: rgba(122, 122, 122, 0.253);
-        }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position: absolute;
+        transform: scale(1.5);
+        transition: background-color 0.2s;
+        z-index: -1;
+      }
+
+      &:hover::before {
+        background-color: rgba(122, 122, 122, 0.253);
+      }
     }
   }
 }
@@ -254,17 +254,13 @@ header {
 @media only screen and (max-width: 1000px) {
   .top-bar {
     padding: 3vh 6vw;
+    --menu-blur: 10px;
+    backdrop-filter: blur(var(--menu-blur));
+    transition: backdrop-filter 0.3s;
   }
 
   .menu-fixed-container {
     padding: 0;
-    // animation-range-start: 100%;
-    // animation-range-end: 100%;
-
-    // &::before {
-    //   animation-range-start: 60%; //! pas bon sur tablettes
-    //   animation-range-end: 100%;
-    // }
 
     .menu-fixed {
       display: none;

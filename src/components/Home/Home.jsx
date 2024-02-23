@@ -215,6 +215,19 @@ function Home() {
           start: "top 100%",
           end: "top 90%",
           scrub: true,
+          //markers: true,
+        },
+      });
+
+      // backdrop-blur
+      gsap.to(".top-bar", {
+        "--menu-blur": 0,
+        scrollTrigger: {
+          trigger: "#contacts",
+          start: "top 25%",
+          end: "top 100%",
+          scrub: true,
+          markers: true,
         },
       });
     });
