@@ -31,6 +31,7 @@ $hair: rgb(151 136 92);
 
   #path-shape {
     fill: lightblue;
+    transition: all 0.5s;
   }
 
   .avatar-wrapper {
@@ -69,15 +70,15 @@ $hair: rgb(151 136 92);
         height: 38%;
         background: linear-gradient(
           to bottom,
-          v.$white 15%,
+          v.$white-bg 15%,
           hotpink 15% 18%,
-          v.$white 18% 25%,
+          v.$white-bg 18% 25%,
           hotpink 25% 28%,
-          v.$white 28% 35%,
+          v.$white-bg 28% 35%,
           hotpink 35% 38%,
-          v.$white 38% 45%,
+          v.$white-bg 38% 45%,
           hotpink 45% 48%,
-          v.$white 48%
+          v.$white-bg 48%
         );
         border-radius: 100%;
         position: absolute;
@@ -202,19 +203,23 @@ $hair: rgb(151 136 92);
       }
 
       .girl-hair {
-        width: 51%;
-        height: 56%;
-        background: $hair;
+        width: 100%;
+        height: 80%;
+        background: radial-gradient(at 70% top, $hair 50%, rgb(215, 192, 124), $hair);
         position: absolute;
-        border-radius: 50% 50% 0 0;
-        left: 19.5%;
-        bottom: 26%;
+        //border-radius: 50% 50% 0 0;
+        // left: 19.5%;
+        // top: 5%;
+        left: -22%;
         z-index: -1;
+        clip-path: path('M 135.866 160.274 Q 98.492 165.417 66 132 Q 88.205 142.101 82.5 82.5 Q 81.114 27.2003 138.4218 41.3935 C 174.5733 29.3436 187.984 69.411 184.555 92.727 C 181.5 115.5 181.5 148.5 198 132 Q 185.926 165.417 121.122 159.588');
 
         &.--shadow {
           background: rgba(0, 0, 0, 0.08);
-          transform: scaleY(1.05) scalex(1.1) translateY(2%);
+          transform: scaleY(1.05) scalex(1.1);
           z-index: -2;
+          position: absolute;
+          top : 2%;
         }
       }
 
@@ -506,7 +511,7 @@ body.--dark {
   }
 
   #path-shape {
-    fill: v.$black-bg;
+    fill: rgb(3, 91, 123);
   }
 }
 

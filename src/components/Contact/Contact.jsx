@@ -42,18 +42,13 @@ function Contact() {
         },
       });
 
-      const initBottomPosition = 32;
-      const initLeftPosition = 24.5;
-
       let xPosition;
       let yPosition;
       let storedXPosition;
       let storedYPosition;
 
-      let boxHeight = document.querySelector(".contact-section-wrapper").offsetHeight;
-      let boxWidth = document.querySelector(
-        ".contact-section-wrapper"
-      ).offsetWidth;
+      let boxHeight = window.innerHeight;
+      let boxWidth = window.innerWidth;
 
       function updateWindowSize() {
         boxHeight = document.querySelector(
@@ -91,20 +86,35 @@ function Contact() {
         storedYPosition = y;
 
         gsap.to(".girl-face", {
-          x: `${x / 10}%`,
-          y: `${y / 10}%`,
-          // duration: 0.2,
+          x: `${x / 20}%`,
+          y: `${y / 20}%`,
+          duration: 0.2,
+        });
+
+        gsap.to(".girl-hair", {
+          x: `-${x / 20}%`,
+          y: `-${y / 20}%`,
+          duration: 0.2,
+        });
+        gsap.to(".girl-bangs-right", {
+          x: `-${x / 13}%`,
+          y: `-${y / 13}%`,
+          duration: 0.2,
+        });
+        gsap.to(".girl-bangs-left", {
+          x: `-${x / 20}%`,
+          y: `-${y / 20}%`,
+          duration: 0.2,
+        });
+
+        gsap.to(".girl-head", {
+          x: `-${x / 30}%`,
+          y: `-${y / 30}%`,
+          duration: 0.2,
         });
 
       }
       requestAnimationFrame(movePointer);
-
-
-      gsap.to(".girl-face", {
-        // x: `${e.clientX - 5}`,
-        //y: `${-10}%`,
-        // duration: 0.2,
-      });
     },
     { scope: contactsContainer }
   );
