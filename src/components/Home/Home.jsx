@@ -227,7 +227,7 @@ function Home() {
           start: "top 25%",
           end: "top 100%",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
     });
