@@ -41,6 +41,70 @@ function Contact() {
           // markers: true,
         },
       });
+
+      const initBottomPosition = 32;
+      const initLeftPosition = 24.5;
+
+      let xPosition;
+      let yPosition;
+      let storedXPosition;
+      let storedYPosition;
+
+      let boxHeight = document.querySelector(".contact-section-wrapper").offsetHeight;
+      let boxWidth = document.querySelector(
+        ".contact-section-wrapper"
+      ).offsetWidth;
+
+      function updateWindowSize() {
+        boxHeight = document.querySelector(
+          ".contact-section-wrapper"
+        ).offsetHeight;
+        boxWidth = document.querySelector(
+          ".contact-section-wrapper"
+        ).offsetWidth;
+      }
+      window.addEventListener("resize", updateWindowSize);
+
+      function updateMouseCoords(event) {
+        xPosition = event.clientX;
+        yPosition = event.clientY;
+      }
+      window.addEventListener("mousemove", (e) => {updateMouseCoords(e)});
+
+      function percentage(partialValue, totalValue) {
+        return (100 * partialValue) / totalValue;
+      }
+
+      function movePointer() {
+
+        if (storedXPosition === xPosition && storedYPosition === yPosition)
+          return;
+
+
+        let x = percentage(xPosition, boxWidth) - 50;
+        let y = percentage(yPosition, boxHeight) - 50;
+
+        window.requestAnimationFrame(movePointer);
+
+
+        storedXPosition = x;
+        storedYPosition = y;
+
+        gsap.to(".girl-face", {
+          x: `${x / 10}%`,
+          y: `${y / 10}%`,
+          // duration: 0.2,
+        });
+
+      }
+      requestAnimationFrame(movePointer);
+
+
+      gsap.to(".girl-face", {
+        // x: `${e.clientX - 5}`,
+        //y: `${-10}%`,
+        // duration: 0.2,
+      });
     },
     { scope: contactsContainer }
   );
