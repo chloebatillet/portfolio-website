@@ -38,7 +38,7 @@ function Contact() {
           start: "top 70%",
           end: "top 70%",
           scrub: 1,
-          markers: true,
+          // markers: true,
         },
       });
     },
@@ -71,7 +71,6 @@ function Contact() {
             >
               <clipPath id="myClipPath">
                 <path
-                  fill="#fff"
                   d="M25.1,-22.1C30.8,-19.4,32.5,-9.7,31.5,-0.9C30.6,7.9,27.1,15.7,21.4,22.1C15.7,28.5,7.9,33.4,-0.2,33.6C-8.2,33.7,-16.3,29.1,-21.6,22.7C-26.9,16.3,-29.3,8.2,-28.8,0.5C-28.3,-7.2,-25,-14.4,-19.7,-17.2C-14.4,-19.9,-7.2,-18.2,1.2,-19.5C9.7,-20.7,19.4,-24.9,25.1,-22.1Z"
                   width="100%"
                   height="100%"
@@ -79,8 +78,7 @@ function Contact() {
                 ></path>
               </clipPath>
               <path
-                // fill="#fcf7f5"
-                fill="lightblue"
+                id="path-shape"
                 d="M25.1,-22.1C30.8,-19.4,32.5,-9.7,31.5,-0.9C30.6,7.9,27.1,15.7,21.4,22.1C15.7,28.5,7.9,33.4,-0.2,33.6C-8.2,33.7,-16.3,29.1,-21.6,22.7C-26.9,16.3,-29.3,8.2,-28.8,0.5C-28.3,-7.2,-25,-14.4,-19.7,-17.2C-14.4,-19.9,-7.2,-18.2,1.2,-19.5C9.7,-20.7,19.4,-24.9,25.1,-22.1Z"
                 width="100%"
                 height="100%"
@@ -88,8 +86,6 @@ function Contact() {
               ></path>
             </svg>
             <div className="avatar-wrapper">
-              {/* <div className="hand"></div> */}
-
               <div className="avatar-box">
                 <div className="avatar-container">
                   <div className="girl-container">
@@ -97,14 +93,25 @@ function Contact() {
                     <div className="girl-arm">
                       <div className="girl-hand"></div>
                     </div>
-                    <div className="girl-head"></div>
+                    <div className="girl-head">
+                      <div className="girl-ear left"></div>
+                      <div className="girl-ear right"></div>
+                    </div>
+
                     <div className="girl-neck"></div>
+                    <div className="girl-neck --shadow"></div>
                     <div className="girl-hair"></div>
+                    <div className="girl-hair --shadow"></div>
                     <div className="girl-bangs-right"></div>
                     <div className="girl-bangs-left"></div>
                     <div className="girl-face">
+                      <div className="blush left"></div>
+                      <div className="blush right"></div>
+                      <div className="eyebrow left"></div>
+                      <div className="eyebrow right"></div>
                       <div className="eye-left"></div>
                       <div className="eye-right"></div>
+                      <div className="nose"></div>
                       <div className="mouth">
                         <div className="tongue"></div>
                       </div>

@@ -21,7 +21,7 @@ function ContactForm() {
       })
       .then(
         () => {
-          submitBtn.current.style.width = "200px";
+          submitBtn.current.style.width = "220px";
           submitBtn.current.setAttribute("disabled", true);
           setBtnIsActive(false);
           setBtnValue("C'est dans ma boîte !");
