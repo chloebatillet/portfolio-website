@@ -38,11 +38,10 @@ function Contact() {
           start: "top 70%",
           end: "top 70%",
           scrub: 1,
-          // markers: true,
         },
       });
 
-      let xPosition;
+      let xPosition = 0; // pour fonctionnement sur mobile
       let yPosition;
       let storedXPosition;
       let storedYPosition;
@@ -51,36 +50,49 @@ function Contact() {
       let boxWidth = window.innerWidth;
 
       function updateWindowSize() {
-        boxHeight = document.querySelector(
-          ".contact-section-wrapper"
-        ).offsetHeight;
-        boxWidth = document.querySelector(
-          ".contact-section-wrapper"
-        ).offsetWidth;
+        boxHeight = window.innerHeight;
+        boxWidth = window.innerWidth;
       }
       window.addEventListener("resize", updateWindowSize);
 
-      function updateMouseCoords(event) {
-        xPosition = event.clientX;
-        yPosition = event.clientY;
+      function updateMouseCoords(event, device) {
+        if (device === "touchable") {
+          xPosition = event.touches[0].clientX;
+          yPosition = event.touches[0].clientY;
+        } else {
+          xPosition = event.clientX;
+          yPosition = event.clientY;
+        }
       }
-      window.addEventListener("mousemove", (e) => {updateMouseCoords(e)});
+
+      window.addEventListener("mousemove", (e) => {
+        updateMouseCoords(e);
+      });
+
+      window.addEventListener("touchmove", (e) => {
+        updateMouseCoords(e, "touchable");
+      });
 
       function percentage(partialValue, totalValue) {
         return (100 * partialValue) / totalValue;
       }
 
       function movePointer() {
-
         if (storedXPosition === xPosition && storedYPosition === yPosition)
           return;
 
+        if (yPosition >= 600) {
+          yPosition = 600;
+        }
+
+        if (xPosition >= 1300) {
+          xPosition = 1300;
+        }
 
         let x = percentage(xPosition, boxWidth) - 50;
         let y = percentage(yPosition, boxHeight) - 50;
 
         window.requestAnimationFrame(movePointer);
-
 
         storedXPosition = x;
         storedYPosition = y;
@@ -112,7 +124,6 @@ function Contact() {
           y: `-${y / 30}%`,
           duration: 0.2,
         });
-
       }
       requestAnimationFrame(movePointer);
     },
