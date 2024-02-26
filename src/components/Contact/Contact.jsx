@@ -32,11 +32,10 @@ function Contact() {
 
       gsap.to(".avatar-container", {
         y: -230,
-        ease: "linear",
         scrollTrigger: {
           trigger: ".illustration-svg",
-          start: "top 70%",
-          end: "top 70%",
+          start: "center 85%",
+          end: "center 85%",
           scrub: 1,
         },
       });
