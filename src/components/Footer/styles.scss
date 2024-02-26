@@ -1,0 +1,19 @@
+@use "../../styles/variables" as v;
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: x-small;
+  position: relative;
+
+  .icon {
+    transition: all 0.1s;
+    &:hover {
+      transform: scale(1.2);
+      color: v.$accent;
+    }
+  }
+}

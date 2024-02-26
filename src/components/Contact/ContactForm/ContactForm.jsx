@@ -1,9 +1,12 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import FormField from "./FormField/FormField";
 import emailjs from "@emailjs/browser";
 
 import { LuSendHorizonal } from "react-icons/lu";
 import { FaCheck } from "react-icons/fa6";
+
+
+import './styles.scss';
 
 function ContactForm() {
   const form = useRef();

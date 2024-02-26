@@ -1,6 +1,6 @@
 import React from "react";
 
-import About from "../About/About";
+import Intro from "../Intro/Intro";
 import Projetcs from "../Projects/Projetcs";
 import Contact from "../Contact/Contact";
 import Experiences from "../Experiences/Experiences";
@@ -20,7 +20,7 @@ function Home() {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 1000px)", () => {
-      const horizontalSections = gsap.utils.toArray(".section-element");
+      const horizontalSections = gsap.utils.toArray(".section-element.--horizontal");
 
       let tween = gsap.to(horizontalSections, {
         xPercent: -100 * (horizontalSections.length - 1),
@@ -31,11 +31,12 @@ function Home() {
           scrub: 2,
           invalidateOnRefresh: true,
           //* Interfère avec les liens du menu
-          //! Interfère avec la navigation horizontale
+          //* Interfère avec la navigation horizontale
           //snap: 1 / (horizontalSections.length - 1),
           end: () => "+=" + document.querySelector("#container").offsetWidth,
         },
       });
+
 
       // Horizontal navigation ------------------------------------
       let maxWidth = 0;
@@ -49,7 +50,7 @@ function Home() {
       getMaxWidth();
       ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
 
-      let getPosition = getScrollLookup(".section-element", {
+      let getPosition = getScrollLookup(".section-element.--horizontal", {
         start: "top top",
         containerAnimation: tween,
       });
@@ -132,7 +133,6 @@ function Home() {
           start: "center 100%",
           end: "center 60%",
           scrub: 1,
-          // markers: true,
           containerAnimation: tween,
         },
       });
@@ -161,7 +161,6 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          // markers: true,
           scrub: true,
         },
       });
@@ -172,7 +171,6 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          //markers: true,
           scrub: 1,
         },
       });
@@ -215,7 +213,6 @@ function Home() {
           start: "top 100%",
           end: "top 90%",
           scrub: true,
-          //markers: true,
         },
       });
 
@@ -227,7 +224,6 @@ function Home() {
           start: "top 25%",
           end: "top 100%",
           scrub: true,
-          // markers: true,
         },
       });
     });
@@ -236,16 +232,16 @@ function Home() {
   return (
     <>
       <main id="container">
-        <div name="about" className="section-element" id="intro">
-          <About />
+        <div name="intro" className="section-element --horizontal" id="intro">
+          <Intro />
         </div>
-        <div name="about" className="section-element" id="about">
+        <div name="about" className="section-element --horizontal" id="about">
           <h2 className="section-title">
             <span className="index">00.</span>Qui suis-je ?
           </h2>
           <Presentation />
         </div>
-        <div name="projects" className="section-element" id="projects">
+        <div name="projects" className="section-element --horizontal" id="projects">
           <h2 className="section-title">
             <span className="index">01.</span>Projets
           </h2>
@@ -253,13 +249,7 @@ function Home() {
         </div>
         <div
           name="experiences"
-          className="section-element"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          className="section-element --horizontal"
           id="experiences"
         >
           <h2 className="section-title">
@@ -268,9 +258,10 @@ function Home() {
           <Experiences />
         </div>
       </main>
-      <footer className="global-footer" id="contacts">
+      <div className="section-element" id="contacts">
         <Contact />
-      </footer>
+      </div>
+
 
       <motion.div
         className="slide-in"

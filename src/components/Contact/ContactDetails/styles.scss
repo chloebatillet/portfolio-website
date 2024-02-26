@@ -1,0 +1,30 @@
+@use "../../../styles/variables" as v;
+
+.contacts-details {
+  display: flex;
+  flex-direction: column;
+
+  .networks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: x-large;
+    margin-top: 12px;
+
+    :nth-child(n) {
+      transition: all 0.1s;
+
+      &:hover {
+        color: v.$accent;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .contacts-details {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+}
