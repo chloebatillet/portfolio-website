@@ -10,10 +10,16 @@ function ContactDetails() {
         <h3>Envie de rester en contacts ?</h3>
         <p>On peut se rejoindre sur mes réseaux !</p>
         <span className="networks">
-          <a href="https://github.com/chloebatillet">
+          <a
+            href="https://github.com/chloebatillet"
+            title="Visiter mon profil Github"
+          >
             <FaGithub />
           </a>
-          <a href="https://github.com/chloebatillet">
+          <a
+            href="https://github.com/chloebatillet"
+            title="Visiter mon profil Linkedin"
+          >
             <FaLinkedin />
           </a>
         </span>

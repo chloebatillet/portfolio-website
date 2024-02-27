@@ -21,6 +21,7 @@
       margin-bottom: 4vh;
 
       .arrow-icon {
+        width: -moz-fit-content;
         width: fit-content;
         height: 100%;
         position: relative;
@@ -76,13 +77,13 @@
         z-index: 0;
       }
 
-
       .project-description {
         flex-direction: column;
         width: 50%;
 
         h2 {
           position: relative;
+          width: -moz-fit-content;
           width: fit-content;
 
           &::before {

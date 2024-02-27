@@ -25,6 +25,7 @@ function FormField({ name, type, placeholder, required }) {
           required={required}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          autoComplete="true"
         />
       )}
     </>

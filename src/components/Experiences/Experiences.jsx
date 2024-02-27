@@ -32,35 +32,39 @@ function Experiences() {
   };
 
   return (
-    <ul
-      className="experiences-wrapper"
-      ref={container}
-      onMouseEnter={() => {
-        document.querySelector(".experience-bubble").classList.add("--open");
-        positionBubble();
-      }}
-      onMouseLeave={() => {
-        document.querySelector(".experience-bubble").classList.remove("--open");
-      }}
-    >
-      {data.experiences.map((el) => {
-        return (
-          <li
-            key={el.title}
-            className="experiences line"
-            data-name={el.title}
-            onMouseOver={() => {
-              setParagraphBubble(el.details);
-            }}
-          >
-            <span className="experience-details">
-              <p className="experience-name">{el.title}</p>
-              <p className="experience-company">{el.company}</p>
-            </span>
-            <GoPlus />
-          </li>
-        );
-      })}
+    <>
+      <ul
+        className="experiences-wrapper"
+        ref={container}
+        onMouseEnter={() => {
+          document.querySelector(".experience-bubble").classList.add("--open");
+          positionBubble();
+        }}
+        onMouseLeave={() => {
+          document
+            .querySelector(".experience-bubble")
+            .classList.remove("--open");
+        }}
+      >
+        {data.experiences.map((el) => {
+          return (
+            <li
+              key={el.title}
+              className="experiences line"
+              data-name={el.title}
+              onMouseOver={() => {
+                setParagraphBubble(el.details);
+              }}
+            >
+              <span className="experience-details">
+                <p className="experience-name">{el.title}</p>
+                <p className="experience-company">{el.company}</p>
+              </span>
+              <GoPlus />
+            </li>
+          );
+        })}
+      </ul>
 
       {/* ---------------------------------------------------------------
 Voir pour la mettre au même niveau que le header pour mettre un zindex plus élevé 
@@ -79,7 +83,7 @@ Voir pour la mettre au même niveau que le header pour mettre un zindex plus él
           />
         </svg>
       </aside>
-    </ul>
+    </>
   );
 }
 
