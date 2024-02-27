@@ -1,0 +1,97 @@
+@use "../../../styles/variables" as v;
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  flex-grow: 1;
+  margin-left: 15%;
+  text-align: left;
+
+  input,
+  textarea {
+    background-color: v.$white-bg;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    resize: none;
+    color: inherit;
+  }
+
+  button[type="submit"] {
+    background-color: v.$black;
+    width: 130px;
+    color: v.$white;
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    overflow: hidden;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    transition: width 0.5s;
+
+    .btn-icon {
+      transition: all 0.3s;
+      margin-right: 18px;
+    }
+
+    &:hover {
+      .btn-icon {
+        transform: translateX(12px);
+      }
+    }
+
+    .value {
+      transition: all 0.5s ease-in-out;
+      position: relative;
+      white-space: nowrap;
+
+      &::before {
+        content: "Envoi...";
+        position: absolute;
+        bottom: -80px;
+      }
+    }
+
+    &.is-active {
+      .btn-icon {
+        transform: translateX(80px);
+        opacity: 0;
+      }
+
+      .value {
+        transform: translateY(-80px);
+      }
+    }
+  }
+
+  label {
+    font-size: smaller;
+  }
+}
+
+body.--dark {
+  input,
+  textarea {
+    background-color: v.$black-bg;
+  }
+
+  button[type="submit"] {
+    background-color: v.$black-bg;
+    color: v.$white;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .contact-form {
+    margin-left: 0;
+
+    h3 {
+      align-self: center;
+    }
+  }
+}

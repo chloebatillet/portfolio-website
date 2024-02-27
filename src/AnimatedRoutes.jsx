@@ -1,11 +1,11 @@
 import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+
+import { AnimatePresence } from "framer-motion";
 
 import Home from "./components/Home/Home";
 import PageProject from "./components/PageProject/PageProject";
 
-import { Route, Routes, useLocation } from "react-router-dom";
-
-import { AnimatePresence } from "framer-motion";
 
 function AnimatedRoutes() {
   const location = useLocation();

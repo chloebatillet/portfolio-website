@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { GoPlus } from "react-icons/go";
 
-import "./styles.scss";
-
 import data from "../../assets/data.json";
+
+import "./styles.scss";
 
 
 function Experiences() {
@@ -23,8 +23,6 @@ function Experiences() {
       isMobileOrTablet
         ? window.addEventListener("mousemove", (e) => {
             bubble.style.top = `calc(${e.clientY}px + 20px)`;
-            //bubble.style.left = `calc(${e.clientX}px - 150px)`;
-            //bubble.style.background = 'red';
           })
         : window.addEventListener("mousemove", (e) => {
             bubble.style.top = `calc(${e.clientY}px - 150px)`;
@@ -34,7 +32,7 @@ function Experiences() {
   };
 
   return (
-    <div
+    <ul
       className="experiences-wrapper"
       ref={container}
       onMouseEnter={() => {
@@ -47,7 +45,7 @@ function Experiences() {
     >
       {data.experiences.map((el) => {
         return (
-          <div
+          <li
             key={el.title}
             className="experiences line"
             data-name={el.title}
@@ -60,7 +58,7 @@ function Experiences() {
               <p className="experience-company">{el.company}</p>
             </span>
             <GoPlus />
-          </div>
+          </li>
         );
       })}
 
@@ -81,7 +79,7 @@ Voir pour la mettre au même niveau que le header pour mettre un zindex plus él
           />
         </svg>
       </aside>
-    </div>
+    </ul>
   );
 }
 

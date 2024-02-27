@@ -1,15 +1,16 @@
 import React from "react";
 
-import About from "../About/About";
-import Projetcs from "../Projects/Projetcs";
-import Contact from "../Contact/Contact";
-import Experiences from "../Experiences/Experiences";
+import Section from "../Section/Section";
+import Intro from "../Intro/Intro";
 import Presentation from "../Presentation/Presentation";
+import Projetcs from "../Projects/Projetcs";
+import Experiences from "../Experiences/Experiences";
+import Contact from "../Contact/Contact";
+import Footer from "../Footer/Footer";
+import Transition from "../Transition/Transition";
 
-import { motion } from "framer-motion";
-
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/all";
 
@@ -20,20 +21,22 @@ function Home() {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 1000px)", () => {
-      const horizontalSections = gsap.utils.toArray(".section-element");
+      const horizontalSections = gsap.utils.toArray(
+        ".section-element.--horizontal"
+      );
 
       let tween = gsap.to(horizontalSections, {
         xPercent: -100 * (horizontalSections.length - 1),
         ease: "none",
         scrollTrigger: {
-          trigger: "#container",
+          trigger: "#horizontal-container",
           pin: true,
           scrub: 2,
           invalidateOnRefresh: true,
           //* Interfère avec les liens du menu
-          //! Interfère avec la navigation horizontale
+          //* Interfère avec la navigation horizontale
           //snap: 1 / (horizontalSections.length - 1),
-          end: () => "+=" + document.querySelector("#container").offsetWidth,
+          end: () => "+=" + document.querySelector("#horizontal-container").offsetWidth,
         },
       });
 
@@ -49,7 +52,7 @@ function Home() {
       getMaxWidth();
       ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
 
-      let getPosition = getScrollLookup(".section-element", {
+      let getPosition = getScrollLookup(".section-element.--horizontal", {
         start: "top top",
         containerAnimation: tween,
       });
@@ -132,7 +135,6 @@ function Home() {
           start: "center 100%",
           end: "center 60%",
           scrub: 1,
-          // markers: true,
           containerAnimation: tween,
         },
       });
@@ -161,7 +163,6 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          // markers: true,
           scrub: true,
         },
       });
@@ -172,7 +173,6 @@ function Home() {
           trigger: ".contact-section-wrapper",
           start: "top 100%",
           end: "top 100%",
-          //markers: true,
           scrub: 1,
         },
       });
@@ -215,7 +215,6 @@ function Home() {
           start: "top 100%",
           end: "top 90%",
           scrub: true,
-          //markers: true,
         },
       });
 
@@ -227,7 +226,6 @@ function Home() {
           start: "top 25%",
           end: "top 100%",
           scrub: true,
-          // markers: true,
         },
       });
     });
@@ -236,116 +234,38 @@ function Home() {
   return (
     <>
       <main id="container">
-        <div name="about" className="section-element" id="intro">
-          <About />
+        <div id="horizontal-container">
+          <Section id={"blabla"} content={<Intro />} />
+          <Section
+            id={"about"}
+            title={"about"}
+            index={"00"}
+            content={<Presentation />}
+          />
+          <Section
+            id={"projects"}
+            title={"projets"}
+            index={"01"}
+            content={<Projetcs />}
+          />
+          <Section
+            id={"experiences"}
+            title={"experiences"}
+            index={"02"}
+            content={<Experiences />}
+          />
         </div>
-        <div name="about" className="section-element" id="about">
-          <h2 className="section-title">
-            <span className="index">00.</span>Qui suis-je ?
-          </h2>
-          <Presentation />
-        </div>
-        <div name="projects" className="section-element" id="projects">
-          <h2 className="section-title">
-            <span className="index">01.</span>Projets
-          </h2>
-          <Projetcs />
-        </div>
-        <div
-          name="experiences"
-          className="section-element"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          id="experiences"
-        >
-          <h2 className="section-title">
-            <span className="index">02.</span>Expériences
-          </h2>
-          <Experiences />
-        </div>
-      </main>
-      <footer className="global-footer" id="contacts">
-        <Contact />
-      </footer>
 
-      <motion.div
-        className="slide-in"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.div
-        className="slide-out"
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
+        <section className="section-element" id="contacts">
+          <Contact />
+        </section>
+
+      </main>
+      <Footer />
+      
+      <Transition />
     </>
   );
 }
 
 export default Home;
-
-// // Experiences ------------------------------------
-// gsap.to(".line", {
-//   width: "100%",
-//   stagger: 0.2,
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".line",
-//     start: "left 90%",
-//     end: "right 40%",
-//     scrub: 1,
-//     // markers: true,
-//     containerAnimation: tween,
-//   },
-// });
-
-// // Projects ------------------------------------
-// let projects = gsap.utils.toArray(".project-box");
-
-// gsap.to(projects, {
-//   y: -20,
-//   stagger: 0.2,
-//   ease: "none",
-//   scrollTrigger: {
-//     trigger: ".projects-container",
-//     start: "left 90%",
-//     end: "center 60%",
-//     scrub: 2,
-//     containerAnimation: tween,
-//   },
-// });
-
-// Contacts ---------------------------------------
-// gsap.to(".illustration-svg", {
-//   rotate: 360,
-//   scale: 1,
-//   scrollTrigger: {
-//     trigger: ".illustration-svg",
-//     start: "left 10%",
-//     end: "right 60%",
-//     scrub: 1,
-//     containerAnimation: '#footer',
-//     markers: true,
-//   }
-// });
-
-// gsap.to(".hand", {
-//   scrollTrigger: {
-//     trigger: ".illustration-svg",
-//     start: "top 65%",
-//     end: "top 50%",
-//     scrub: 1,
-//     containerAnimation: tween,
-//     //markers: true,
-//   },
-//   translateY: -200,
-//   scale: 1,
-// });

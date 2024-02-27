@@ -1,0 +1,326 @@
+@use "../../styles/variables" as v;
+
+$flesh: #ffd7c5;
+$blush: #ffc9af;
+$hair: rgb(151 136 92);
+
+.illustration {
+  position: relative;
+  width: 300px;
+
+  svg {
+    width: 300px;
+    transform: scale(0);
+  }
+
+  #path-shape {
+    fill: lightblue;
+    transition: all 0.5s;
+  }
+
+  .avatar-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: scale(2) translate(50 50);
+    transform-origin: center;
+    clip-path: url(#myClipPath);
+    overflow: hidden; // A garder pour éviter le resize de la page en hauteur
+
+    .avatar-box {
+      position: absolute;
+      top: 25%;
+      left: 10%;
+      right: 0;
+      bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      .avatar-container {
+        position: relative;
+        margin: auto;
+        display: block;
+        max-width: 200px;
+        height: 200px;
+        bottom: -235px;
+        z-index: 1;
+        transform: scale(1.5);
+      }
+
+      .girl-body {
+        width: 33%;
+        height: 38%;
+        background: linear-gradient(
+          to bottom,
+          v.$white-bg 15%,
+          hotpink 15% 18%,
+          v.$white-bg 18% 25%,
+          hotpink 25% 28%,
+          v.$white-bg 28% 35%,
+          hotpink 35% 38%,
+          v.$white-bg 38% 45%,
+          hotpink 45% 48%,
+          v.$white-bg 48%
+        );
+        border-radius: 100%;
+        position: absolute;
+        bottom: -8%;
+        left: 30%;
+        z-index: 2;
+      }
+
+      .girl-head {
+        width: 41%;
+        height: 41%;
+        background: $flesh;
+        border-radius: 50%;
+        position: absolute;
+        left: 24.5%;
+        bottom: 32%;
+        z-index: 3;
+      }
+
+      .girl-ear {
+        width: 20%;
+        height: 18%;
+        border-radius: 50%;
+        background-color: $flesh;
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+
+        &::before {
+          content: "";
+          width: 50%;
+          height: 50%;
+          border-radius: 50% 50% 0% 0%;
+          border-top: $hair solid 2px;
+          opacity: 0.2;
+          position: absolute;
+        }
+
+        &.left {
+          left: -13%;
+
+          &::before {
+            transform: rotate(-160deg);
+            left: 25%;
+            bottom: 30%;
+          }
+        }
+
+         &.right {
+          right: -13%;
+
+          &::before {
+            transform: rotate(+160deg);
+            right: 25%;
+            bottom: 30%;
+          }
+        }
+      }
+
+      .girl-neck {
+        width: 6%;
+        height: 8%;
+        background: $flesh;
+        border-radius: 30%;
+        position: absolute;
+        left: 43%;
+        bottom: 28%;
+        z-index: 2;
+
+        &.--shadow {
+          background: rgba(0, 0, 0, 0.08);
+          transform: scaleX(1.1) scaleY(0.5);
+          z-index: 2;
+        }
+      }
+
+      .girl-hair {
+        width: 100%;
+        height: 80%;
+        background: radial-gradient(at 70% top, $hair 50%, rgb(215, 192, 124), $hair);
+        position: absolute;
+        left: -22%;
+        z-index: -1;
+        clip-path: path('M 135.866 160.274 Q 98.492 165.417 66 132 Q 88.205 142.101 82.5 82.5 Q 81.114 27.2003 138.4218 41.3935 C 174.5733 29.3436 187.984 69.411 184.555 92.727 C 181.5 115.5 181.5 148.5 198 132 Q 185.926 165.417 121.122 159.588');
+
+        &.--shadow {
+          background: rgba(0, 0, 0, 0.08);
+          transform: scaleY(1.05) scalex(1.1);
+          z-index: -2;
+          position: absolute;
+          top : 2%;
+        }
+      }
+
+      .girl-bangs-right {
+        height: 28%;
+        width: 10%;
+        position: absolute;
+        background: $hair;
+        left: 51%;
+        bottom: 54%;
+        border-radius: 100%;
+        transform: rotate(-41deg);
+        z-index: 4;
+      }
+
+      .girl-bangs-left {
+        height: 28%;
+        width: 8%;
+        position: absolute;
+        background: $hair;
+        left: 33%;
+        bottom: 54%;
+        border-radius: 100%;
+        transform: rotate(70deg);
+        z-index: 4;
+      }
+
+      .girl-face {
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+        position: absolute;
+        left: 24.5%;
+        bottom: 32%;
+        z-index: 3;
+
+        .blush {
+          width: 10%;
+          height: 5%;
+          border-radius: 50%;
+          background-color: $blush;
+          position: absolute;
+          top: 50%;
+
+          &.left {
+            left: 20%;
+          }
+
+          &.right {
+            right: 20%;
+          }
+        }
+
+        .nose {
+          position: absolute;
+          width: 8%;
+          height: 7%;
+          bottom: 44%;
+          left: 46%;
+          border-radius: 0% 0% 50% 50%;
+          border-bottom: $hair solid 2px;
+          opacity: 0.2;
+        }
+
+        .eyebrow {
+          position: absolute;
+          width: 17%;
+          height: 8%;
+          bottom: 66%;
+          border-radius: 50% 50% 0% 0%;
+          border-top: $hair solid 2px;
+          opacity: 0.2;
+
+          &.left {
+            left: 23%;
+          }
+
+          &.right {
+            right: 23%;
+          }
+        }
+
+        .eye-left {
+          width: 13%;
+          height: 12%;
+          animation: eyeblink 5s 2s infinite;
+          background: #000;
+          position: absolute;
+          left: 25%;
+          bottom: 54%;
+          border-radius: 50%;
+        }
+
+        .eye-right {
+          width: 13%;
+          height: 12%;
+          animation: eyeblink 5s 2s infinite;
+          background: #000;
+          position: absolute;
+          left: 65%;
+          bottom: 54%;
+          border-radius: 50%;
+        }
+
+        @keyframes eyeblink {
+          2% {
+            width: 15%;
+            height: 5%;
+          }
+          3% {
+            width: 15%;
+            height: 5%;
+          }
+          4% {
+            width: 13%;
+            height: 12%;
+          }
+        }
+
+        .mouth {
+          position: absolute;
+          left: 35%;
+          bottom: 22%;
+          width: 30%;
+          height: 16%;
+          border-radius: 0 0 100px 100px;
+          background: #424b54;
+          overflow: hidden;
+          z-index: 3;
+          animation: mouse-opening 4s infinite ease-in;
+
+          @keyframes mouse-opening {
+            50% {
+              transform: scaleX(1.8);
+              transform: scaleY(0.8);
+              border-radius: 0 0 100px 100px;
+            }
+          }
+
+          .tongue {
+            position: absolute;
+            left: 25%;
+            bottom: -71%;
+            width: 80%;
+            height: 125%;
+            background: #f6828c;
+            border-radius: 100%;
+            z-index: 5;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes waving {
+    from {
+      transform: rotate(-40deg);
+    }
+    to {
+      transform: rotate(20deg);
+    }
+  }
+}
+
+
+body.--dark {
+  #path-shape {
+    fill: rgb(3, 91, 123);
+  }
+}

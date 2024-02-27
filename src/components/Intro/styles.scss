@@ -1,28 +1,27 @@
 @use "../../styles/variables" as v;
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Teko:wght@300;400;500;600;700&display=swap");
 
-.flower {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  flex-wrap: wrap;
-
-  :nth-child(n) {
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    background-color: hotpink;
-  }
-}
-
-.about-container {
-  // all: inherit;
+.intro-container {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  .flower {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+    :nth-child(n) {
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background-color: hotpink;
+    }
+  }
 
   .titles {
     width: 70%;
@@ -38,38 +37,6 @@
     h2 {
       font-weight: lighter;
       font-family: "Courier New", Courier, monospace;
-    }
-  }
-}
-
-.section-element {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-
-  &:first-of-type {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    @keyframes gradient-grow {
-      0% {
-        transform: scale(0);
-      }
-      100% {
-        transform: scale(2);
-      }
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
     }
   }
 
@@ -103,17 +70,17 @@
         animation: disappear 1s 0.1s infinite alternate-reverse ease-in;
       }
     }
-  }
 
-  @keyframes disappear {
-    0% {
-      filter: opacity(0%);
-    }
-    20% {
-      filter: opacity(100%);
-    }
-    100% {
-      filter: opacity(100%);
+    @keyframes disappear {
+      0% {
+        filter: opacity(0%);
+      }
+      20% {
+        filter: opacity(100%);
+      }
+      100% {
+        filter: opacity(100%);
+      }
     }
   }
 }
@@ -122,21 +89,22 @@ body.--dark {
   color: v.$white;
   background-color: v.$black-bg;
 
-  .scroll-indicator {
+  .intro-container .scroll-indicator {
     border-color: v.$white;
   }
 }
 
 @media only screen and (max-width: 1000px) {
-  .section-element .scroll-indicator {
-    display: none;
-  }
+  .intro-container {
+    .titles {
+      font-size: smaller;
 
-  .about-container .titles {
-    font-size: smaller;
-
-    h1 {
-      font-size: 2rem;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    .scroll-indicator {
+      display: none;
     }
   }
 }

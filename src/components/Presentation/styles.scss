@@ -1,38 +1,25 @@
 .presentation-wrapper {
-    //background-color: lightblue;
-    width: 70%;
-    height: inherit;
+  width: 70%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10%;
+  margin: auto;
+
+  .tags {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: row;
-    gap: 10%;
-    margin: auto;
-
-    h2.section-title {
-        display: flex;
-    }
-
-    &:nth-child(n) {
-    }
-
-    .tags {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 2vh;
-        font-family: 'Courier New', Courier, monospace;
-    }
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2vh;
+    font-family: "Courier New", Courier, monospace;
+  }
 }
 
-
 @media only screen and (max-width: 1000px) {
-    .presentation-wrapper {
-        flex-direction: column;
-
-        h2.section-title {
-        display: none;
-    }
-    }
+  .presentation-wrapper {
+    flex-direction: column;
+  }
 }

@@ -9,7 +9,7 @@ import "./styles.scss";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-function About() {
+function Intro() {
   const container = useRef();
 
   useGSAP(
@@ -20,7 +20,6 @@ function About() {
           start: "top center",
           end: "top 100px",
           scrub: 1,
-          // markers: true,
         },
         rotation: 360,
         ease: "power3.in",
@@ -31,7 +30,7 @@ function About() {
   );
 
   return (
-    <div className="about-container" ref={container}>
+    <div className="intro-container" ref={container}>
       <div className="flower">
         <div></div>
         <div></div>
@@ -58,4 +57,4 @@ function About() {
   );
 }
 
-export default About;
+export default Intro;

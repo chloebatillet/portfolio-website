@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import AnimatedRoutes from "./AnimatedRoutes";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isDark, setIsDark] = useState(localStorage.getItem("darkMode"));
@@ -50,6 +51,7 @@ function App() {
       {!isMobileOrTablet && <Cursor />}
       <Header isDark={isDark} setIsDark={setIsDark} />
       <AnimatedRoutes />
+      {/* <Footer /> */}
     </Router>
   );
 }

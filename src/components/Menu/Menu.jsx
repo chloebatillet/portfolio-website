@@ -4,9 +4,7 @@ function Menu({ setMenuIsOpen }) {
   const nav = ["about", "projects", "experiences", "contacts"];
 
   return (
-    // Voir pour ajouter balise nav
-    <>
-      {/* <div className="menu-container"> */}
+    <nav className="menu-nav">
       {/* Word ------------------------*/}
       {nav.map((e, index) => {
         return (
@@ -30,10 +28,8 @@ function Menu({ setMenuIsOpen }) {
           </a>
         );
       })}
-      {/* </div> */}
-    </>
+    </nav>
   );
 }
 
 export default Menu;
-

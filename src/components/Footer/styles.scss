@@ -1,0 +1,26 @@
+@use "../../styles/variables" as v;
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: x-small;
+  background-color: v.$white;
+  padding-top: 36px;
+  padding-bottom: 36px;
+
+  .icon {
+    transition: all 0.1s;
+    &:hover {
+      transform: scale(1.2);
+      color: v.$accent;
+    }
+  }
+}
+
+body.--dark .footer {
+  color: v.$white;
+  background-color: v.$black;
+}
