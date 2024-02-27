@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import Cursor from "./components/Cursor/Cursor";
-import Header from "./components/Header/Header";
-
 import { BrowserRouter as Router } from "react-router-dom";
 
+import Cursor from "./components/Cursor/Cursor";
+import Header from "./components/Header/Header";
 import AnimatedRoutes from "./AnimatedRoutes";
+
+import { Analytics } from "@vercel/analytics/react";
+
 
 function App() {
   const [isDark, setIsDark] = useState(localStorage.getItem("darkMode"));
@@ -50,6 +52,7 @@ function App() {
       {!isMobileOrTablet && <Cursor />}
       <Header isDark={isDark} setIsDark={setIsDark} />
       <AnimatedRoutes />
+      <Analytics />
       {/* <Footer /> */}
     </Router>
   );
