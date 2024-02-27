@@ -7,7 +7,7 @@
   "background_color": "#F9EDE7",
   "icons": [
     {
-      "src": "./public/favico_portfolio.png",
+      "src": "/favico_portfolio.png",
       "sizes": "512x512",
       "type": "image/png"
     }
