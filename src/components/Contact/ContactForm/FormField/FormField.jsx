@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function FormField({ name, type, placeholder, required }) {
   const [value, setValue] = useState("");

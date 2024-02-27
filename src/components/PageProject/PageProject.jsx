@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import Chip from "../Chip/Chip";
+import Transition from "../Transition/Transition";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 
-import { motion } from "framer-motion";
 
 import "./styles.scss";
-const folder = "/projectsImages/"
 
+const folder = "/projectsImages/"
 import data from "../../assets/data.json";
+
 
 function PageProject() {
   let { state } = useLocation();
@@ -86,20 +87,8 @@ function PageProject() {
           </div>
         </article>
       </section>
-      <motion.div
-        className="slide-in"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 1 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.div
-        className="slide-out"
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        exit={{ scaleY: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
+
+      <Transition />
     </main>
   );
 }

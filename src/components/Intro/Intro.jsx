@@ -20,7 +20,6 @@ function Intro() {
           start: "top center",
           end: "top 100px",
           scrub: 1,
-          // markers: true,
         },
         rotation: 360,
         ease: "power3.in",
