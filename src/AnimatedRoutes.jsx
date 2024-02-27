@@ -1,7 +1,7 @@
-import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 import Home from "./components/Home/Home";
 import PageProject from "./components/PageProject/PageProject";
@@ -15,6 +15,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/projet" element={<PageProject />} />
       </Routes>
+      <Analytics />
     </AnimatePresence>
   );
 }
