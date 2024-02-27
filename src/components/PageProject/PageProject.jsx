@@ -62,7 +62,10 @@ function PageProject() {
 
         <article className="project-description">
           <aside className="project-gallery">
-            <img src={folder + project.img}></img>
+            <img
+              src={folder + project.img}
+              alt={`image projet ${project.name}`}
+            ></img>
           </aside>
           <div className="project-description">
             <header>
@@ -77,10 +80,18 @@ function PageProject() {
             </div>
 
             <div className="project-links">
-              <a href={project.github} target="_blank">
+              <a
+                href={project.github}
+                target="_blank"
+                title={`Visiter ${project.name} sur Github`}
+              >
                 <FaGithub />
               </a>
-              <a href={project.website} target="_blank">
+              <a
+                href={project.website}
+                target="_blank"
+                title={`Visiter le site de ${project.name}`}
+              >
                 <CgWebsite />
               </a>
             </div>

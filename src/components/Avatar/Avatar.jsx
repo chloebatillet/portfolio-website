@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -6,121 +6,122 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-import './styles.scss';
+import "./styles.scss";
 
 function Avatar() {
+  const container = document.querySelector(".contacts-details");
 
-      useGSAP(
-        () => {
-          gsap.to(".illustration-svg", {
-            rotate: 360,
-            scale: 1,
-            scrollTrigger: {
-              trigger: ".illustration-svg",
-              start: "top 90%",
-              end: "top 95%",
-              scrub: 1,
-            },
-          });
-
-          gsap.to(".avatar-container", {
-            y: -230,
-            scrollTrigger: {
-              trigger: ".illustration-svg",
-              start: "center 85%",
-              end: "center 85%",
-              scrub: 1,
-            },
-          });
-
-          let xPosition = 0; // pour fonctionnement sur mobile
-          let yPosition;
-          let storedXPosition;
-          let storedYPosition;
-
-          let boxHeight = window.innerHeight;
-          let boxWidth = window.innerWidth;
-
-          function updateWindowSize() {
-            boxHeight = window.innerHeight;
-            boxWidth = window.innerWidth;
-          }
-          window.addEventListener("resize", updateWindowSize);
-
-          function updateMouseCoords(event, device) {
-            if (device === "touchable") {
-              xPosition = event.touches[0].clientX;
-              yPosition = event.touches[0].clientY;
-            } else {
-              xPosition = event.clientX;
-              yPosition = event.clientY;
-            }
-          }
-
-          window.addEventListener("mousemove", (e) => {
-            updateMouseCoords(e);
-          });
-
-          window.addEventListener("touchmove", (e) => {
-            updateMouseCoords(e, "touchable");
-          });
-
-          function percentage(partialValue, totalValue) {
-            return (100 * partialValue) / totalValue;
-          }
-
-          function movePointer() {
-            if (storedXPosition === xPosition && storedYPosition === yPosition)
-              return;
-
-            if (yPosition >= 600) {
-              yPosition = 600;
-            }
-
-            if (xPosition >= 1300) {
-              xPosition = 1300;
-            }
-
-            let x = percentage(xPosition, boxWidth) - 50;
-            let y = percentage(yPosition, boxHeight) - 50;
-
-            window.requestAnimationFrame(movePointer);
-
-            storedXPosition = x;
-            storedYPosition = y;
-
-            gsap.to(".girl-face", {
-              x: `${x / 20}%`,
-              y: `${y / 20}%`,
-              duration: 0.2,
-            });
-
-            gsap.to(".girl-hair", {
-              x: `-${x / 20}%`,
-              y: `-${y / 20}%`,
-              duration: 0.2,
-            });
-            gsap.to(".girl-bangs-right", {
-              x: `-${x / 13}%`,
-              y: `-${y / 13}%`,
-              duration: 0.2,
-            });
-            gsap.to(".girl-bangs-left", {
-              x: `-${x / 20}%`,
-              y: `-${y / 20}%`,
-              duration: 0.2,
-            });
-
-            gsap.to(".girl-head", {
-              x: `-${x / 30}%`,
-              y: `-${y / 30}%`,
-              duration: 0.2,
-            });
-          }
-          requestAnimationFrame(movePointer);
+  useGSAP(
+    () => {
+      gsap.to(".illustration-svg", {
+        rotate: 360,
+        scale: 1,
+        scrollTrigger: {
+          trigger: ".illustration-svg",
+          start: "top 90%",
+          end: "top 95%",
+          scrub: 1,
         },
-        { scope: ".contacts-details" }
-      );
+      });
+
+      gsap.to(".avatar-container", {
+        y: -230,
+        scrollTrigger: {
+          trigger: ".illustration-svg",
+          start: "center 85%",
+          end: "center 85%",
+          scrub: 1,
+        },
+      });
+
+      let xPosition = 0; // pour fonctionnement sur mobile
+      let yPosition;
+      let storedXPosition;
+      let storedYPosition;
+
+      let boxHeight = window.innerHeight;
+      let boxWidth = window.innerWidth;
+
+      function updateWindowSize() {
+        boxHeight = window.innerHeight;
+        boxWidth = window.innerWidth;
+      }
+      window.addEventListener("resize", updateWindowSize);
+
+      function updateMouseCoords(event, device) {
+        if (device === "touchable") {
+          xPosition = event.touches[0].clientX;
+          yPosition = event.touches[0].clientY;
+        } else {
+          xPosition = event.clientX;
+          yPosition = event.clientY;
+        }
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        updateMouseCoords(e);
+      });
+
+      window.addEventListener("touchmove", (e) => {
+        updateMouseCoords(e, "touchable");
+      });
+
+      function percentage(partialValue, totalValue) {
+        return (100 * partialValue) / totalValue;
+      }
+
+      function movePointer() {
+        if (storedXPosition === xPosition && storedYPosition === yPosition)
+          return;
+
+        if (yPosition >= 600) {
+          yPosition = 600;
+        }
+
+        if (xPosition >= 1300) {
+          xPosition = 1300;
+        }
+
+        let x = percentage(xPosition, boxWidth) - 50;
+        let y = percentage(yPosition, boxHeight) - 50;
+
+        window.requestAnimationFrame(movePointer);
+
+        storedXPosition = x;
+        storedYPosition = y;
+
+        gsap.to(".girl-face", {
+          x: `${x / 20}%`,
+          y: `${y / 20}%`,
+          duration: 0.2,
+        });
+
+        gsap.to(".girl-hair", {
+          x: `-${x / 20}%`,
+          y: `-${y / 20}%`,
+          duration: 0.2,
+        });
+        gsap.to(".girl-bangs-right", {
+          x: `-${x / 13}%`,
+          y: `-${y / 13}%`,
+          duration: 0.2,
+        });
+        gsap.to(".girl-bangs-left", {
+          x: `-${x / 20}%`,
+          y: `-${y / 20}%`,
+          duration: 0.2,
+        });
+
+        gsap.to(".girl-head", {
+          x: `-${x / 30}%`,
+          y: `-${y / 30}%`,
+          duration: 0.2,
+        });
+      }
+      requestAnimationFrame(movePointer);
+    },
+    { scope: container }
+  );
 
   return (
     <div className="illustration">
@@ -185,4 +186,4 @@ function Avatar() {
   );
 }
 
-export default Avatar
+export default Avatar;

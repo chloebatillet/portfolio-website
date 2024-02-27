@@ -1,0 +1,15 @@
+{
+  "name": "Chloe Batillet",
+  "short_name": "Chloé Batillet - Portfolio",
+  "description": "Développeuse web fullstack spécialisée en Javascript et React, je conçois et développe des application pour le web. Découvrez mes projets, compétences et expériences dans mon portfolio !",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9EDE7",
+  "icons": [
+    {
+      "src": "./public/favico_portfolio.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

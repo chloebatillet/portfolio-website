@@ -2,6 +2,7 @@
 
 .chip-tag {
   border: solid 1px v.$black;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 2px 8px;
   border-radius: 20px;
