@@ -11,13 +11,7 @@ function Presentation() {
       <article className="text">
         <h2 className="section-title">Qui suis-je ?</h2>
         <p>
-          Il y a 1 an, j'ai choisi le développement web. J'y ai trouvé ce que je
-          cherchais : un moyen de satisfaire ma curiosité, beaucoup de
-          créativité et surtout des heures à me creuser la tête !
-          <br />
-          Aujourd'hui, je recherche à approfondir mes connaissances avant
-          d’intégrer une entreprise qui sera prête à m’accompagner dans cette
-          nouvelle carrière ☺
+          {data.about.presentation}
         </p>
         <br />
       </article>

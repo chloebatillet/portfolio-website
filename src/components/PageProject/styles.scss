@@ -137,10 +137,14 @@ body.--dark {
     min-height: 100vh;
     padding-bottom: 8vh;
     .project-container {
+
+      .project-gallery {
+      min-width: 100%;
+    }
+
       .project-description {
         flex-direction: column;
-        .project-description,
-        img {
+        .project-description, img {
           width: 100%;
         }
       }

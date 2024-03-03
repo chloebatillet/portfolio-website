@@ -4,14 +4,14 @@
       "name": "TokTok",
       "type": "Application web",
       "img": "toktok-nobg.png",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
+      "description": "Développement d'un réseau social de proximité pour rapprocher les voisins. Comme sur Facebook, on peut y partager des publications, poster des petites annonces et discutez avec ses contacts. Projet de fin de formation réalisé en équipe de 4 en vue de la préparation au Titre pro DWWM",
       "tags": [
         "react",
         "redux",
         "express",
         "sequelize",
         "JWT",
-        "MaterialUi",
+        "Material Ui",
         "aws"
       ],
       "github": "https://github.com/O-clock-Uranium/projet-tok-tok-back",
@@ -21,8 +21,8 @@
       "name": "FitnessBuddy",
       "type": "Application web",
       "img": "fitnessbuddy-nobg.png",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
-      "tags": ["react", "express", "sequelize", "JWT"],
+      "description": "Application de suivi de séances de sport. Permet de garder en mémoire les exercices de chaque séances avec le nombre de répétitions et la charge ainsi qu'un chronomètre. Evolution: transformation en app mobile avec React Native",
+      "tags": ["react", "sass", "express", "sequelize", "JWT", "postgresql"],
       "github": "https://github.com/chloebatillet/fitness-buddy",
       "website": "https://fitness-buddy-xi.vercel.app/"
     },
@@ -30,19 +30,19 @@
       "name": "Portfolio",
       "type": "Site web",
       "img": "portfolio-nobg.png",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
-      "tags": ["react", "gsap", "framer.motion"],
+      "description": "Site de présentation de mon parcours et de mes projets. C'est mon terrain de jeu pour expériementer les animations à l'aide de GSAP. Pas vraiment besoin de plus le décrire !",
+      "tags": ["react", "sass", "gsap", "framer.motion", "emailjs"],
       "github": "https://github.com/chloebatillet/portfolio-website",
-      "website": "https://github.com/chloebatillet"
+      "website": "https://www.chloebatillet.com/"
     },
     {
       "name": "BeGuide",
       "type": "Extension web",
       "img": "beguide-nobg.png",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat perferendis nostrum soluta quo mollitia harum deserunt, aliquid voluptates? Dignissimos quasi ea maiores provident, magni nemo repellat ut expedita corrupti eaque.",
-      "tags": ["react", "redux", "phpmyadmin", "mysql", "appsmith"],
-      "github": "https://github.com/chloebatillet",
-      "website": "https://github.com/chloebatillet"
+      "description": "Participation au développement d'un outil interne de suivi de mini-formation, dans le même style que Udemy. L'application possède deux interfaces : une extension web pour les visiteurs et une site pour les administrateurs.",
+      "tags": ["react", "redux", "phpmyadmin", "mysql", "appsmith", "laravel"],
+      "github": "",
+      "website": ""
     }
   ],
   "experiences": [
@@ -50,7 +50,7 @@
       "title": "Diplôme DWWM",
       "dates": "dec 2023",
       "company": "O'Clock",
-      "details": "Après une formation de 6 mois orientée Javascript puis une spécialisation React, j'ai validé les parties front et back de l'examen Développeur Web et Web Mobile !"
+      "details": "Après une formation de 6 mois orientée Javascript/Node.js puis une spécialisation React, j'ai validé les parties front et back de l'examen Développeur Web et Web Mobile !"
     },
     {
       "title": "Stage Développeur React",
@@ -62,7 +62,7 @@
       "title": "Master Management - Innovation",
       "dates": "sept 2022",
       "company": "IAE Clermont Auvergne",
-      "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti praesentium magni, fugiat quasi cum! Non, tempore reiciendis dignissimos molestiae praesentium quisquam, dolorem ea nulla impedit, repellat optio libero ipsum."
+      "details": "Master axé notamment sur la gestion de projets avec une expertise approfondie des méthodes agiles telles que Scrum, renforçant ainsi mes compétences dans la conduite efficace de projets innovants."
     },
     {
       "title": "Chargée de communication digitale",
@@ -71,15 +71,15 @@
       "details": "Création, optimisation et gestion d'intranets, suivi des KPI, gestion de projet, confection de vidéos et de supports intéractifs, rédaction d'articles et diffusion de newsletters."
     },
     {
-      "title": "Stage en communication",
+      "title": "Stage en communication digitale",
       "dates": "sept 2022",
       "company": "La Charrette Créole",
       "details": "Création & optimisation SEO d'un site vitrine Wordpress, rédaction de contenu, communication, élaboration d'une stratégie pour les réseaux sociaux."
     }
   ],
   "about": {
-    "presentation" : "Il y a 1 an, j'ai choisi le développement web. J'y ai trouvé ce que je cherchais : un moyen de satisfaire ma curiosité, beaucoup de créativité et surtout des heures à me creuser la tête ! Aujourd'hui, je recherche à approfondir mes connaissances avant d’intégrer une entreprise qui sera prête à m’accompagner dans cette nouvelle carrière ☺",
-    "techno": ["html", "css/scss", "javascript", "typescript", "react", "redux", "axios", "node.js", "sql", "sequelize"],
-    "tools": ["git/github", "insomnia", "appsmith", "figma"]
+    "presentation" : "Passionnée de logique depuis toujours, j'ai choisi le développement web. J'y ai trouvé ce que je cherchais : un moyen de satisfaire ma curiosité, beaucoup de créativité et surtout des heures à me creuser la tête ! Aujourd'hui, je recherche à approfondir mes connaissances avant d’intégrer une entreprise qui sera prête à m’accompagner dans cette nouvelle carrière ☺",
+    "techno": ["html", "css/scss", "tailwind", "javascript ES6+", "typescript", "react", "redux", "axios", "API REST", "node.js", "sql", "sequelize"],
+    "tools": ["git/github", "vercel/netlify/render", "insomnia", "appsmith", "figma", "notion"]
   }
 }

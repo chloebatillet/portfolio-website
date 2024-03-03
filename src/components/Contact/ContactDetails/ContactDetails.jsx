@@ -17,7 +17,7 @@ function ContactDetails() {
             <FaGithub />
           </a>
           <a
-            href="https://github.com/chloebatillet"
+            href="https://www.linkedin.com/in/chlo%C3%A9-batillet-207390129/"
             title="Visiter mon profil Linkedin"
           >
             <FaLinkedin />

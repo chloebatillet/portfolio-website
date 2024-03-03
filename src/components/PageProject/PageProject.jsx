@@ -6,7 +6,7 @@ import Transition from "../Transition/Transition";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import { CgWebsite } from "react-icons/cg";
+import { RxExternalLink } from "react-icons/rx";
 
 
 import "./styles.scss";
@@ -17,8 +17,6 @@ import data from "../../assets/data.json";
 
 function PageProject() {
   let { state } = useLocation();
-
-  console.log(state);
 
   const [index, setIndex] = useState(state.id);
   const [project, setProject] = useState(data.projects[state.id]);
@@ -39,7 +37,6 @@ function PageProject() {
 
   const nextProject = () => {
     setIndex((prev) => prev === length -1 ? 0 : prev + 1);
-    console.log(state.id);
   };
 
   const prevProject = () => {
@@ -92,7 +89,7 @@ function PageProject() {
                 target="_blank"
                 title={`Visiter le site de ${project.name}`}
               >
-                <CgWebsite />
+                <RxExternalLink />
               </a>
             </div>
           </div>
