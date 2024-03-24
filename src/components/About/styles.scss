@@ -1,0 +1,142 @@
+@use "../../styles/variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Teko:wght@300;400;500;600;700&display=swap");
+
+.flower {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+
+  :nth-child(n) {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: hotpink;
+  }
+}
+
+.about-container {
+  // all: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .titles {
+    width: 70%;
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      word-break: normal;
+      font-family: "Red Hat Display", sans-serif;
+    }
+
+    h2 {
+      font-weight: lighter;
+      font-family: "Courier New", Courier, monospace;
+    }
+  }
+}
+
+.section-element {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  &:first-of-type {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @keyframes gradient-grow {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(2);
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .scroll-indicator {
+    transition: all 0.3s;
+    border: 1px solid v.$black;
+    padding: 6px 12px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-transform: uppercase;
+    font-size: small;
+    margin-top: 5vh;
+
+    .icon {
+      display: flex;
+
+      :nth-child(1) {
+        animation: disappear 1s infinite alternate-reverse ease-in;
+        margin-right: -8px;
+      }
+
+      :nth-child(2) {
+        animation: disappear 1s 0.1s infinite alternate-reverse ease-in;
+        margin-right: -8px;
+      }
+
+      :nth-child(3) {
+        animation: disappear 1s 0.1s infinite alternate-reverse ease-in;
+      }
+    }
+  }
+
+  @keyframes disappear {
+    0% {
+      filter: opacity(0%);
+    }
+    20% {
+      filter: opacity(100%);
+    }
+    100% {
+      filter: opacity(100%);
+    }
+  }
+}
+
+body.--dark {
+  color: v.$white;
+  background-color: v.$black-bg;
+
+  .scroll-indicator {
+    border-color: v.$white;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .section-element .scroll-indicator {
+    display: none;
+  }
+
+  .about-container .titles {
+    font-size: smaller;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}

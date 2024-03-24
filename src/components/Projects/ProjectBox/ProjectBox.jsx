@@ -11,7 +11,7 @@ function ProjectBox({ name, type, index }) {
 
   return (
     <article
-      className="project-box one"
+      className="project-box"
       onMouseOver={() => {
         changeCursor(true);
       }}

@@ -21,7 +21,7 @@
       "name": "FitnessBuddy",
       "type": "Application web",
       "img": "fitnessbuddy-nobg.png",
-      "description": "Application de suivi de séances de sport. Permet de garder en mémoire les exercices de chaque séances avec le nombre de répétitions et la charge ainsi qu'un chronomètre. Evolution: transformation en app mobile avec React Native",
+      "description": "Application de suivi de séances de sport. Permet de garder en mémoire les exercices de chaque séance avec le nombre de répétitions et la charge ainsi qu'un chronomètre. Evolution: transformation en app mobile avec React Native",
       "tags": ["react", "sass", "express", "sequelize", "JWT", "postgresql"],
       "github": "https://github.com/chloebatillet/fitness-buddy",
       "website": "https://fitness-buddy-xi.vercel.app/"
@@ -43,6 +43,15 @@
       "tags": ["react", "redux", "phpmyadmin", "mysql", "appsmith", "laravel"],
       "github": "",
       "website": ""
+    },
+    {
+      "name": "ElevateX",
+      "type": "Site e-commerce",
+      "img": "elevatex-nobg.png",
+      "description": "Boutique en ligne de baskets futuristes. Filtrage des produits, intégration du paiement avec L'API Stripe et recherche de magasins sur une carte interactive. Je travaille actuellement sur un backend pour gérer les stocks et les commandes (node/express/drizzle).",
+      "tags": ["react", "redux", "nextUI", "tailwind", "stripe", "leaflet"],
+      "github": "https://github.com/chloebatillet/elevateX-shop",
+      "website": "https://elevate-x-shop.vercel.app/"
     }
   ],
   "experiences": [

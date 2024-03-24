@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,6 +10,12 @@ import "./styles.scss";
 
 function Avatar() {
   const container = document.querySelector(".contacts-details");
+
+  useEffect(() => {
+    const avatarContainer = document.querySelector(".avatar-container");
+    console.log(avatarContainer);
+  }, [])
+  
 
   useGSAP(
     () => {
@@ -120,7 +126,7 @@ function Avatar() {
       }
       requestAnimationFrame(movePointer);
     },
-    { scope: container }
+    { scope: container, revertOnUpdate: true }
   );
 
   return (

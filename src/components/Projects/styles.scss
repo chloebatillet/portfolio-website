@@ -2,11 +2,10 @@
 
 .projects-container {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 70%;
   gap: 30px;
   margin: auto;
 }
@@ -34,7 +33,6 @@
       position: absolute;
       bottom: 28px;
       right: 6px;
-      mix-blend-mode: difference;
     }
 
     &::before {
@@ -60,9 +58,10 @@
   .article-name {
     position: relative;
     overflow: hidden;
-    -webkit-text-stroke: 1px v.$white; // bug sur mobile
+    -webkit-text-stroke: 1px v.$white;
     color: v.$black;
-
+    font-family: 'Red Hat Display';
+    font-size: 1.15em;
 
     &::before {
       content: attr(data-text);
@@ -104,7 +103,6 @@
         font-size: 1rem;
         bottom: 6px;
         right: 28px;
-        mix-blend-mode: difference;
       }
 
       &::before {

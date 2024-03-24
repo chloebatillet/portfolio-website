@@ -77,20 +77,20 @@ function PageProject() {
             </div>
 
             <div className="project-links">
-              <a
+              {project.github && <a
                 href={project.github}
                 target="_blank"
                 title={`Visiter ${project.name} sur Github`}
               >
                 <FaGithub />
-              </a>
-              <a
+              </a>}
+              {project.website && <a
                 href={project.website}
                 target="_blank"
                 title={`Visiter le site de ${project.name}`}
               >
                 <RxExternalLink />
-              </a>
+              </a>}
             </div>
           </div>
         </article>
