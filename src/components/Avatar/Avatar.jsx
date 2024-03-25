@@ -13,7 +13,6 @@ function Avatar() {
 
   useEffect(() => {
     const avatarContainer = document.querySelector(".avatar-container");
-    console.log(avatarContainer);
   }, [])
   
 
